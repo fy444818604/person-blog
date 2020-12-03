@@ -16,6 +16,9 @@ import DatabaseConfig from './config/database.config'
 import ServerConfig from './config/server.config'
 import { utilities as nestWinstonModuleUtilities,WinstonModule } from 'nest-winston'
 import { NoteModule } from './note/note.module';
+import { UploadController } from './upload/upload.controller';
+import { UploadService } from './upload/upload.service';
+import { UploadModule } from './upload/upload.module';
 import * as winston from 'winston';
 const DailyRotateFile = require('winston-daily-rotate-file');
 
@@ -69,14 +72,16 @@ const DailyRotateFile = require('winston-daily-rotate-file');
 		}),
 	  AuthModule,
 	  NoteModule,
+	  UploadModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, UploadController],
   providers: [
 	  AppService,
 	  {
 		provide: APP_PIPE,
 		useClass: ValidationPipe
 	  },
+	  UploadService,
   ],
 })
 export class AppModule implements NestModule {

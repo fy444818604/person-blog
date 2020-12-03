@@ -23,6 +23,9 @@ const database_config_1 = require("./config/database.config");
 const server_config_1 = require("./config/server.config");
 const nest_winston_1 = require("nest-winston");
 const note_module_1 = require("./note/note.module");
+const upload_controller_1 = require("./upload/upload.controller");
+const upload_service_1 = require("./upload/upload.service");
+const upload_module_1 = require("./upload/upload.module");
 const winston = require("winston");
 const DailyRotateFile = require('winston-daily-rotate-file');
 let AppModule = class AppModule {
@@ -75,14 +78,16 @@ AppModule = __decorate([
             }),
             auth_module_1.AuthModule,
             note_module_1.NoteModule,
+            upload_module_1.UploadModule,
         ],
-        controllers: [app_controller_1.AppController],
+        controllers: [app_controller_1.AppController, upload_controller_1.UploadController],
         providers: [
             app_service_1.AppService,
             {
                 provide: core_1.APP_PIPE,
                 useClass: validation_pipe_1.ValidationPipe
             },
+            upload_service_1.UploadService,
         ],
     })
 ], AppModule);

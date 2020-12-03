@@ -2738,7 +2738,7 @@
         "signature": "097d4bf3331df1e138ffdcf92e1117f6841bc8337170d927fd955d5ee8a1674b"
       },
       "../src/common/pipe/validation.pipe.ts": {
-        "version": "11125225870a1aad969f21a17e85ca1de3722e8c439aadf61fe4c04781d4ed1b",
+        "version": "cb89444dd2ed60514559d7518b5f4089513fa0a9600858449d56282b33db29cf",
         "signature": "134c61339c890213ca34c3b6212da9c01cc9ec918c4bef25b60469295a80ca62"
       },
       "../node_modules/@nestjs/schedule/dist/enums/cron-expression.enum.d.ts": {
@@ -2846,11 +2846,11 @@
         "signature": "b11a6982744c52ced32164a252be7872b532a49763503d52f1dbc86d6baf673e"
       },
       "../src/note/dto/search.note.dot.ts": {
-        "version": "e4a3f08124582f863887c0082b6fd4082e6e11057116b17c7271587d7c8b900c",
-        "signature": "b0443097849cc1536ca98c29d13f50c8b2ecd41de98f88d383513226d7ea9a6d"
+        "version": "1c07dcb41cbf54635a58cb96fcf3da7c8e57007fd71e7319d2977019a735b4b6",
+        "signature": "06da74bb6055cff1b7b680b99ab88e01edb0173d6ac82549ccd07570a85f8d80"
       },
       "../src/note/note.service.ts": {
-        "version": "f715ce55b9cf17245807939db1c19fb632e4add109c9d85423c9ed071e1a30d8",
+        "version": "97ffe48637be637a8d5e35b211d841894200ad9809787659f707370b1a40eefc",
         "signature": "69d7b86123ba23352413bfac8f9132314602749401450be5d948397cd120271e"
       },
       "../src/note/note.controller.ts": {
@@ -2861,8 +2861,20 @@
         "version": "39305c271f7732e8ccd251aa0c4d5572e837c9b61d592b2a2b9ab019fd8ae993",
         "signature": "7e922293f4e2b44a84ebaf8af43e9dcce9647e12fceb09ce2cafeb5b4b1dbfa8"
       },
+      "../src/upload/upload.controller.ts": {
+        "version": "4853875aa0a9a1fc4a5bab441c72c36d32a06309730c8b8e11c3e8003880cfa7",
+        "signature": "ab7d1ae051e71d502a400767b482e04c6aa4d0df29d17cb0aca2f45f31f7fdfc"
+      },
+      "../src/upload/upload.service.ts": {
+        "version": "2484ead798ec86e58af6b4f491a466324bae8ddfef42fb43674c365d38b2e711",
+        "signature": "67e7cf51cd84b9a4357c966e38fa8288333620b0d661bfa1dc19bf2dc3a44785"
+      },
+      "../src/upload/upload.module.ts": {
+        "version": "327303bdafeb8bc54dbd51da09d1fd87790d7e5728152fed2e2edaed799b140f",
+        "signature": "0130e2f523b9ad920910011643cf7e5876a950a8af3fc82366d12f070c44bc49"
+      },
       "../src/app.module.ts": {
-        "version": "ad423ecc406efc851930d50daa07f471a2635a680d8ca7acf065c4479cf25628",
+        "version": "fd048c8380444648ff006d482bb09bb129abe5657b9bda922a2b77c9a9e5ba06",
         "signature": "843f051400e86a3e4de923e5b7271bfa660bd889abf5fee0dce89d6ded83b42c"
       },
       "../node_modules/rxjs/internal/operators/audit.d.ts": {
@@ -10112,6 +10124,27 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/upload/upload.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/upload/upload.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/upload/upload.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/app.controller.ts",
@@ -10130,6 +10163,9 @@
         "../src/config/server.config.ts",
         "../node_modules/nest-winston/dist/index.d.ts",
         "../src/note/note.module.ts",
+        "../src/upload/upload.controller.ts",
+        "../src/upload/upload.service.ts",
+        "../src/upload/upload.module.ts",
         "../node_modules/winston/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -22083,9 +22119,11 @@
       "../src/entity/note.entity.ts",
       "../src/note/dto/create-note.dto.ts",
       "../src/note/dto/search.note.dot.ts",
+      "../src/note/note.service.ts",
       "../src/note/note.controller.ts",
       "../src/note/note.module.ts",
-      "../src/app.module.ts",
+      "../src/upload/upload.controller.ts",
+      "../src/upload/upload.service.ts",
       "../node_modules/rxjs/internal/operators/audit.d.ts",
       "../node_modules/rxjs/internal/operators/audittime.d.ts",
       "../node_modules/rxjs/internal/operators/buffer.d.ts",
@@ -22407,7 +22445,8 @@
       "../node_modules/@types/ws/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/note/note.service.ts"
+      "../src/upload/upload.module.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.4"

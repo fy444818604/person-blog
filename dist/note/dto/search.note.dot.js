@@ -18,24 +18,29 @@ class SearchNoteDto {
 }
 __decorate([
     swagger_1.ApiProperty({ required: false }),
+    class_validator_1.ValidateIf(obj => {
+        return obj && typeof obj.type !== 'undefined';
+    }),
     class_validator_1.IsString(),
     __metadata("design:type", String)
 ], SearchNoteDto.prototype, "type", void 0);
 __decorate([
     swagger_1.ApiProperty({ required: false }),
+    class_validator_1.ValidateIf(obj => {
+        return obj && typeof obj.title !== 'undefined';
+    }),
     class_validator_1.IsString(),
     __metadata("design:type", String)
 ], SearchNoteDto.prototype, "title", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
-    class_validator_1.IsNumber(),
+    swagger_1.ApiProperty({ type: 'number' }),
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", Number)
 ], SearchNoteDto.prototype, "current", void 0);
 __decorate([
-    swagger_1.ApiProperty({ required: false }),
-    class_validator_1.IsNumber(),
-    __metadata("design:type", Object)
+    swagger_1.ApiProperty({ required: false, default: 10, type: 'number' }),
+    class_validator_1.IsNotEmpty(),
+    __metadata("design:type", Number)
 ], SearchNoteDto.prototype, "pageSize", void 0);
 exports.SearchNoteDto = SearchNoteDto;
 //# sourceMappingURL=search.note.dot.js.map

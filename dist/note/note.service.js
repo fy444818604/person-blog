@@ -21,11 +21,10 @@ let NoteService = class NoteService {
         this.notes = notes;
     }
     async noteSearch(searchNoteDto) {
-        console.log(searchNoteDto);
         return await this.notes.findAndCount({
             where: {
-                type: searchNoteDto.type,
-                title: searchNoteDto.title
+                type: searchNoteDto.type || typeorm_2.Like("%"),
+                title: searchNoteDto.title ? typeorm_2.Like(`%${searchNoteDto.title}%`) : typeorm_2.Like("%")
             },
             order: {
                 createTime: "DESC"

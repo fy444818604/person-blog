@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository,Like } from 'typeorm';
 import { Note } from '../entity/note.entity'
 import { CreateNoteDto } from './dto/create-note.dto'
 import { SearchNoteDto } from './dto/search.note.dot'
@@ -13,11 +13,10 @@ export class NoteService {
 	){}
 	
 	async noteSearch(searchNoteDto:SearchNoteDto): Promise<[Note[],number]> {
-		console.log(searchNoteDto)
 		return await this.notes.findAndCount({
 			where: {
-				type: searchNoteDto.type,
-				title: searchNoteDto.title
+				type:  searchNoteDto.type || Like("%"),
+				title: searchNoteDto.title ? Like(`%${searchNoteDto.title}%`) : Like("%")
 			},
 			order: {
 				createTime: "DESC"
