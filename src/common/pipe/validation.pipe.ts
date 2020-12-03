@@ -10,8 +10,11 @@ export class ValidationPipe implements PipeTransform<any> {
     }
     const object = plainToClass(metatype, value);
     const errors = await validate(object);
+		console.log(errors)
     if (errors.length > 0) {
-      throw new BadRequestException('参数类型有误!');
+			let constraints = errors[0].constraints
+      throw new BadRequestException(constraints[Object.keys(constraints)[0]]);
+      // throw new BadRequestException('参数类型有误!');
     }
     return value;
   }

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from 'typeorm';
+import { NoteImage } from './note.image.entity'
 
 @Entity('note')
 export class Note {
@@ -13,4 +14,7 @@ export class Note {
 	
 	@CreateDateColumn()
 	createTime: Date;
+	
+	@OneToMany(type => NoteImage, noteImage => noteImage.note)
+	photos: NoteImage[]
 }

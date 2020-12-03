@@ -16,9 +16,11 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const note_entity_1 = require("../entity/note.entity");
+const note_image_entity_1 = require("../entity/note.image.entity");
 let NoteService = class NoteService {
-    constructor(notes) {
+    constructor(notes, noteImages) {
         this.notes = notes;
+        this.noteImages = noteImages;
     }
     async noteSearch(searchNoteDto) {
         return await this.notes.findAndCount({
@@ -26,6 +28,7 @@ let NoteService = class NoteService {
                 type: searchNoteDto.type || typeorm_2.Like("%"),
                 title: searchNoteDto.title ? typeorm_2.Like(`%${searchNoteDto.title}%`) : typeorm_2.Like("%")
             },
+            relations: ["photos"],
             order: {
                 createTime: "DESC"
             },
@@ -35,13 +38,16 @@ let NoteService = class NoteService {
         });
     }
     async noteAdd(createNoteDto) {
+        await this.noteImages.save(createNoteDto.photos);
         return await this.notes.save(createNoteDto);
     }
 };
 NoteService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(note_entity_1.Note)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, typeorm_1.InjectRepository(note_image_entity_1.NoteImage)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository])
 ], NoteService);
 exports.NoteService = NoteService;
 //# sourceMappingURL=note.service.js.map

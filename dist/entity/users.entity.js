@@ -10,31 +10,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const note_image_entity_1 = require("./note.image.entity");
-let Note = class Note {
+let Users = class Users {
 };
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn('uuid'),
+    typeorm_1.PrimaryGeneratedColumn("uuid"),
     __metadata("design:type", String)
-], Note.prototype, "id", void 0);
+], Users.prototype, "userId", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Note.prototype, "type", void 0);
+], Users.prototype, "username", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Note.prototype, "title", void 0);
+], Users.prototype, "password", void 0);
 __decorate([
-    typeorm_1.CreateDateColumn(),
-    __metadata("design:type", Date)
-], Note.prototype, "createTime", void 0);
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Users.prototype, "fullName", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => note_image_entity_1.NoteImage, noteImage => noteImage.note),
+    typeorm_1.Column({
+        type: "enum",
+        enum: ["admin", "editor", "ghost"],
+        default: "ghost"
+    }),
+    __metadata("design:type", String)
+], Users.prototype, "roles", void 0);
+__decorate([
+    typeorm_1.Column("simple-array"),
     __metadata("design:type", Array)
-], Note.prototype, "photos", void 0);
-Note = __decorate([
-    typeorm_1.Entity('note')
-], Note);
-exports.Note = Note;
-//# sourceMappingURL=note.entity.js.map
+], Users.prototype, "power", void 0);
+Users = __decorate([
+    typeorm_1.Entity('user')
+], Users);
+exports.Users = Users;
+//# sourceMappingURL=users.entity.js.map

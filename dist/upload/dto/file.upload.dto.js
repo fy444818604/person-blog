@@ -10,25 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const swagger_1 = require("@nestjs/swagger");
-const class_validator_1 = require("class-validator");
-class CreateNoteDto {
+class FileUploadDto {
 }
 __decorate([
-    swagger_1.ApiProperty(),
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", String)
-], CreateNoteDto.prototype, "type", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    class_validator_1.IsNotEmpty(),
-    class_validator_1.MaxLength(20, {
-        message: "最长不得超过20"
-    }),
-    __metadata("design:type", String)
-], CreateNoteDto.prototype, "title", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", Array)
-], CreateNoteDto.prototype, "photos", void 0);
-exports.CreateNoteDto = CreateNoteDto;
-//# sourceMappingURL=create-note.dto.js.map
+    swagger_1.ApiProperty({ type: 'string', format: 'binary' }),
+    __metadata("design:type", Object)
+], FileUploadDto.prototype, "file", void 0);
+exports.FileUploadDto = FileUploadDto;
+//# sourceMappingURL=file.upload.dto.js.map

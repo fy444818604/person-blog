@@ -1,6 +1,6 @@
 import { UsersService } from './users.service';
 import { UsersDto } from './dto/users.dto';
-import { Users } from './users.entity';
+import { Users } from '../entity/users.entity';
 export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);

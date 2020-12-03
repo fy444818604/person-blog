@@ -2,7 +2,7 @@ import { Controller, Post, Body } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger'
 import { UsersService } from './users.service'
 import { UsersDto } from './dto/users.dto'
-import { Users } from './users.entity'
+import { Users } from '../entity/users.entity'
 
 @ApiTags('用户相关')
 @Controller('users')
