@@ -10,30 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const users_entity_1 = require("./users.entity");
-const note_entity_1 = require("./note.entity");
-let NoteImage = class NoteImage {
+const photo_group_entity_1 = require("./photo_group.entity");
+let Photos = class Photos {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn('uuid'),
     __metadata("design:type", String)
-], NoteImage.prototype, "id", void 0);
+], Photos.prototype, "id", void 0);
 __decorate([
-    typeorm_1.CreateDateColumn(),
-    __metadata("design:type", Date)
-], NoteImage.prototype, "createTime", void 0);
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Photos.prototype, "url", void 0);
 __decorate([
-    typeorm_1.OneToOne(type => users_entity_1.Users),
-    typeorm_1.JoinColumn(),
-    __metadata("design:type", users_entity_1.Users)
-], NoteImage.prototype, "user", void 0);
-__decorate([
-    typeorm_1.OneToOne(type => note_entity_1.Note),
-    typeorm_1.JoinColumn(),
-    __metadata("design:type", note_entity_1.Note)
-], NoteImage.prototype, "note", void 0);
-NoteImage = __decorate([
-    typeorm_1.Entity('note_watch_record')
-], NoteImage);
-exports.NoteImage = NoteImage;
-//# sourceMappingURL=note_watch_record.entity.js.map
+    typeorm_1.ManyToOne(type => photo_group_entity_1.PhotoGroup, photoGroup => photoGroup.photos),
+    __metadata("design:type", photo_group_entity_1.PhotoGroup)
+], Photos.prototype, "photo", void 0);
+Photos = __decorate([
+    typeorm_1.Entity('photos')
+], Photos);
+exports.Photos = Photos;
+//# sourceMappingURL=photos.entity.js.map

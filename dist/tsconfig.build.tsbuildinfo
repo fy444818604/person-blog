@@ -3574,8 +3574,16 @@
         "signature": "77bc2663cdc2a316b87a1c78739202be23501d3cb80e36b36c41e35f7f868812"
       },
       "../src/entity/note_watch_record.entity.ts": {
-        "version": "030a057f3d85659db0fe27723398b28ee7d7110bf7b55b55a225fabd8ec1c3e2",
-        "signature": "7f4d322d6d4b31f2224965a3b1d9e7c03d51456bd49ee8e634086529a1f12ef1"
+        "version": "289c3022153fd67b8e6a62c58d435c6d9aaeee203c81edbdcb8789ffd86357f6",
+        "signature": "60f7265a783f6a297faebb8920f0f473f2ac61668aeceff3bc61283aaa7c433e"
+      },
+      "../src/entity/photos.entity.ts": {
+        "version": "07c13f62d2775e7c329aeeb7391f867701fd91a933cbb248a0e60e7baaa89cbf",
+        "signature": "28824e648b1ce8e84f623a5bc359343bbbbdf2c6a3eebd48906ccaf3819c51c7"
+      },
+      "../src/entity/photo_group.entity.ts": {
+        "version": "ec4db1cba83860df179e4de9be4d6739fe2969dd63a46824cacc5facbd1ba784",
+        "signature": "bddc0aa0e358a869aefa353972f202af140f9b00a5846a96216a658f5f1d5ae9"
       },
       "../node_modules/@types/accepts/index.d.ts": {
         "version": "6738101ae8e56cd3879ab3f99630ada7d78097fc9fd334df7e766216778ca219",
@@ -11660,6 +11668,23 @@
       "../src/entity/note_watch_record.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/entity/users.entity.ts",
+        "../src/entity/note.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/entity/photos.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/entity/photo_group.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/entity/photo_group.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/entity/photos.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -20139,6 +20164,13 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/rxjs/index.d.ts"
       ],
+      "../src/entity/note_watch_record.entity.ts": [
+        "../src/entity/users.entity.ts",
+        "../src/entity/note.entity.ts"
+      ],
+      "../src/entity/photo_group.entity.ts": [
+        "../src/entity/photos.entity.ts"
+      ],
       "../node_modules/@types/accepts/index.d.ts": [
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/ts3.2/index.d.ts",
@@ -21457,9 +21489,6 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/entity/note_watch_record.entity.ts": [
-        "../src/entity/users.entity.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -22356,6 +22385,8 @@
       "../src/common/interceptor/exception.interceptor.ts",
       "../src/common/interceptor/logging.interceptor.ts",
       "../src/common/interceptor/timeout.interceptor.ts",
+      "../src/entity/note_watch_record.entity.ts",
+      "../src/entity/photo_group.entity.ts",
       "../node_modules/@types/accepts/index.d.ts",
       "../node_modules/@types/anymatch/index.d.ts",
       "../node_modules/@babel/types/lib/index.d.ts",
@@ -22505,7 +22536,7 @@
       "../node_modules/@types/ws/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/entity/note_watch_record.entity.ts"
+      "../src/entity/photos.entity.ts"
     ]
   },
   "version": "3.7.4"
