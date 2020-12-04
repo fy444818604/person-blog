@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne } from 'typeorm';
 import { Photos } from './photos.entity'
 
 @Entity('photo_group')
@@ -11,6 +11,9 @@ export class PhotoGroup {
 	
 	@Column()
 	name: string;
+	
+	@Column()
+	user: string;
 	
 	@CreateDateColumn()
 	createTime: Date;

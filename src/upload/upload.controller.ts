@@ -1,10 +1,11 @@
-import { Controller, Post, Body, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Post, Body, UseInterceptors, UploadedFile, UploadedFiles } from '@nestjs/common';
 import { ApiTags, ApiConsumes, ApiBody } from '@nestjs/swagger';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { FileUploadDto } from './dto/file.upload.dto'
 let md5 = require('md5-node');
 let fs = require('fs')
 let path = require('path');
+
 
 @ApiTags('上传相关')
 @Controller('upload')

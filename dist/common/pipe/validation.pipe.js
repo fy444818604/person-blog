@@ -16,7 +16,6 @@ let ValidationPipe = class ValidationPipe {
         }
         const object = class_transformer_1.plainToClass(metatype, value);
         const errors = await class_validator_1.validate(object);
-        console.log(errors);
         if (errors.length > 0) {
             let constraints = errors[0].constraints;
             throw new common_1.BadRequestException(constraints[Object.keys(constraints)[0]]);

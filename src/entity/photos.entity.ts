@@ -8,7 +8,7 @@ export class Photos {
 	
 	@Column()
 	url: string;
-	
+
 	@ManyToOne(type => PhotoGroup, photoGroup => photoGroup.photos)
 	photo: PhotoGroup;
 }
