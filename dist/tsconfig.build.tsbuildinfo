@@ -22323,7 +22323,6 @@
       "../src/entity/note.entity.ts",
       "../src/note/dto/create-note.dto.ts",
       "../src/note/dto/search.note.dot.ts",
-      "../src/note/note.service.ts",
       "../src/note/note.controller.ts",
       "../src/note/note.module.ts",
       "../node_modules/@nestjs/platform-express/interfaces/serve-static-options.interface.d.ts",
@@ -22350,6 +22349,7 @@
       "../src/photos/dto/photos_item_add.dto.ts",
       "../src/entity/photo_group.entity.ts",
       "../src/entity/photos.entity.ts",
+      "../src/photos/photos.service.ts",
       "../src/photos/photos.controller.ts",
       "../src/photos/photos.module.ts",
       "../src/app.module.ts",
@@ -22661,7 +22661,7 @@
       "../node_modules/@types/ws/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/photos/photos.service.ts"
+      "../src/note/note.service.ts"
     ]
   },
   "version": "3.7.4"
