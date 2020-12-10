@@ -9,31 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const typeorm_1 = require("typeorm");
-let Components = class Components {
-};
+const swagger_1 = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
+class CreateComponentDto {
+}
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn('uuid'),
+    swagger_1.ApiProperty({ type: 'string' }),
+    class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
-], Components.prototype, "id", void 0);
+], CreateComponentDto.prototype, "title", void 0);
 __decorate([
-    typeorm_1.Column(),
+    swagger_1.ApiProperty({ type: 'string' }),
+    class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
-], Components.prototype, "title", void 0);
+], CreateComponentDto.prototype, "describe", void 0);
 __decorate([
-    typeorm_1.Column(),
+    swagger_1.ApiProperty({ type: 'string' }),
+    class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
-], Components.prototype, "describe", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Components.prototype, "url", void 0);
-__decorate([
-    typeorm_1.CreateDateColumn(),
-    __metadata("design:type", Date)
-], Components.prototype, "createTime", void 0);
-Components = __decorate([
-    typeorm_1.Entity('components')
-], Components);
-exports.Components = Components;
-//# sourceMappingURL=components.entity.js.map
+], CreateComponentDto.prototype, "url", void 0);
+exports.CreateComponentDto = CreateComponentDto;
+//# sourceMappingURL=create.component.dto.js.map

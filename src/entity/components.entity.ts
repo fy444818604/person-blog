@@ -11,6 +11,9 @@ export class Components {
 	@Column()
 	describe: string;
 	
+	@Column()
+	url: string;
+	
 	@CreateDateColumn()
 	createTime: Date;
 }

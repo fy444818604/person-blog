@@ -18,6 +18,7 @@ import { utilities as nestWinstonModuleUtilities,WinstonModule } from 'nest-wins
 import { NoteModule } from './note/note.module';
 import { UploadModule } from './upload/upload.module';
 import { PhotosModule } from './photos/photos.module';
+import { ComponentModule } from './component/component.module';
 import * as winston from 'winston';
 const DailyRotateFile = require('winston-daily-rotate-file');
 
@@ -73,6 +74,7 @@ const DailyRotateFile = require('winston-daily-rotate-file');
 	  NoteModule,
 	  UploadModule,
 	  PhotosModule,
+	  ComponentModule,
   ],
   controllers: [AppController],
   providers: [

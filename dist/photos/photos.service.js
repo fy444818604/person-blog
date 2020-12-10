@@ -26,7 +26,8 @@ let PhotosService = class PhotosService {
         return await this.photoGroup.find({
             where: {
                 user: searchPhotosDto.user
-            }
+            },
+            relations: ["photos"]
         });
     }
     async photosAdd(photosAddDto) {

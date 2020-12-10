@@ -25,6 +25,7 @@ const nest_winston_1 = require("nest-winston");
 const note_module_1 = require("./note/note.module");
 const upload_module_1 = require("./upload/upload.module");
 const photos_module_1 = require("./photos/photos.module");
+const component_module_1 = require("./component/component.module");
 const winston = require("winston");
 const DailyRotateFile = require('winston-daily-rotate-file');
 let AppModule = class AppModule {
@@ -79,6 +80,7 @@ AppModule = __decorate([
             note_module_1.NoteModule,
             upload_module_1.UploadModule,
             photos_module_1.PhotosModule,
+            component_module_1.ComponentModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [
