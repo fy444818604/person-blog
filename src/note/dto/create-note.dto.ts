@@ -1,11 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { NoteImage } from '../../entity/note.image.entity';
+import { Label } from '../../entity/label.entity'
 import { IsNotEmpty, MaxLength } from 'class-validator';
 
 export class CreateNoteDto {
 	@ApiProperty()
 	@IsNotEmpty()
-	type: string;
+	type: Label;
 	
 	@ApiProperty()
 	@IsNotEmpty()
@@ -16,4 +17,5 @@ export class CreateNoteDto {
 	
 	@ApiProperty()
 	photos: NoteImage[]
+	
 }

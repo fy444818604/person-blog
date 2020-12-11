@@ -28,7 +28,7 @@ let NoteService = class NoteService {
                 type: searchNoteDto.type || typeorm_2.Like("%"),
                 title: searchNoteDto.title ? typeorm_2.Like(`%${searchNoteDto.title}%`) : typeorm_2.Like("%")
             },
-            relations: ["photos"],
+            relations: ["photos", "type"],
             order: {
                 createTime: "DESC"
             },

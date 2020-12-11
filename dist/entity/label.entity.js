@@ -10,33 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const note_image_entity_1 = require("./note.image.entity");
-const label_entity_1 = require("./label.entity");
-let Note = class Note {
+let Label = class Label {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn('uuid'),
     __metadata("design:type", String)
-], Note.prototype, "id", void 0);
-__decorate([
-    typeorm_1.OneToOne(type => label_entity_1.Label),
-    typeorm_1.JoinColumn(),
-    __metadata("design:type", label_entity_1.Label)
-], Note.prototype, "type", void 0);
+], Label.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Note.prototype, "title", void 0);
+], Label.prototype, "name", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Label.prototype, "pId", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)
-], Note.prototype, "createTime", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => note_image_entity_1.NoteImage, noteImage => noteImage.note),
-    __metadata("design:type", Array)
-], Note.prototype, "photos", void 0);
-Note = __decorate([
-    typeorm_1.Entity('note')
-], Note);
-exports.Note = Note;
-//# sourceMappingURL=note.entity.js.map
+], Label.prototype, "createTime", void 0);
+Label = __decorate([
+    typeorm_1.Entity('label')
+], Label);
+exports.Label = Label;
+//# sourceMappingURL=label.entity.js.map

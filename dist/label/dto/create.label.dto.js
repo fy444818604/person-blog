@@ -10,26 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const swagger_1 = require("@nestjs/swagger");
-const label_entity_1 = require("../../entity/label.entity");
 const class_validator_1 = require("class-validator");
-class CreateNoteDto {
+class CreateLabelDto {
 }
 __decorate([
-    swagger_1.ApiProperty(),
+    swagger_1.ApiProperty({ type: 'string' }),
     class_validator_1.IsNotEmpty(),
-    __metadata("design:type", label_entity_1.Label)
-], CreateNoteDto.prototype, "type", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    class_validator_1.IsNotEmpty(),
-    class_validator_1.MaxLength(20, {
-        message: "最长不得超过20"
-    }),
     __metadata("design:type", String)
-], CreateNoteDto.prototype, "title", void 0);
+], CreateLabelDto.prototype, "name", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", Array)
-], CreateNoteDto.prototype, "photos", void 0);
-exports.CreateNoteDto = CreateNoteDto;
-//# sourceMappingURL=create-note.dto.js.map
+    swagger_1.ApiProperty({ type: 'string' }),
+    class_validator_1.IsNotEmpty(),
+    __metadata("design:type", String)
+], CreateLabelDto.prototype, "pId", void 0);
+exports.CreateLabelDto = CreateLabelDto;
+//# sourceMappingURL=create.label.dto.js.map

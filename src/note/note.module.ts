@@ -4,10 +4,11 @@ import { NoteController } from './note.controller';
 import { NoteService } from './note.service';
 import { Note } from '../entity/note.entity';
 import { NoteImage } from '../entity/note.image.entity'
+import { Label } from '../entity/label.entity'
 
 @Module({
 	imports:[
-		TypeOrmModule.forFeature([Note]),
+		TypeOrmModule.forFeature([Note,Label]),
 		TypeOrmModule.forFeature([NoteImage]),
 	],
   controllers: [NoteController],

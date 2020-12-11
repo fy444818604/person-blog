@@ -1,13 +1,15 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 import { NoteImage } from './note.image.entity'
+import { Label } from './label.entity'
 
 @Entity('note')
 export class Note {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
-	type: string;
+	@OneToOne(type => Label)
+	@JoinColumn()
+	type: Label;
 	
 	@Column()
 	title: string;

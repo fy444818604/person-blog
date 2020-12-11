@@ -21,7 +21,7 @@ export class NoteService {
 				type:  searchNoteDto.type || Like("%"),
 				title: searchNoteDto.title ? Like(`%${searchNoteDto.title}%`) : Like("%")
 			},
-			relations:["photos"],
+			relations:["photos","type"],
 			order: {
 				createTime: "DESC"
 			},

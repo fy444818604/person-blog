@@ -7,23 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
+const label_controller_1 = require("./label.controller");
+const label_service_1 = require("./label.service");
 const typeorm_1 = require("@nestjs/typeorm");
-const note_controller_1 = require("./note.controller");
-const note_service_1 = require("./note.service");
-const note_entity_1 = require("../entity/note.entity");
-const note_image_entity_1 = require("../entity/note.image.entity");
 const label_entity_1 = require("../entity/label.entity");
-let NoteModule = class NoteModule {
+let LabelModule = class LabelModule {
 };
-NoteModule = __decorate([
+LabelModule = __decorate([
     common_1.Module({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([note_entity_1.Note, label_entity_1.Label]),
-            typeorm_1.TypeOrmModule.forFeature([note_image_entity_1.NoteImage]),
+            typeorm_1.TypeOrmModule.forFeature([label_entity_1.Label])
         ],
-        controllers: [note_controller_1.NoteController],
-        providers: [note_service_1.NoteService]
+        controllers: [label_controller_1.LabelController],
+        providers: [label_service_1.LabelService]
     })
-], NoteModule);
-exports.NoteModule = NoteModule;
-//# sourceMappingURL=note.module.js.map
+], LabelModule);
+exports.LabelModule = LabelModule;
+//# sourceMappingURL=label.module.js.map
