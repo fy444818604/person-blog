@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const note_entity_1 = require("./note.entity");
 let Label = class Label {
 };
 __decorate([
@@ -28,6 +29,10 @@ __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)
 ], Label.prototype, "createTime", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => note_entity_1.Note, note => note.label),
+    __metadata("design:type", Array)
+], Label.prototype, "notes", void 0);
 Label = __decorate([
     typeorm_1.Entity('label')
 ], Label);

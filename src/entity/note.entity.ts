@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, OneToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne, OneToOne, JoinColumn } from 'typeorm';
 import { NoteImage } from './note.image.entity'
 import { Label } from './label.entity'
 
@@ -6,16 +6,15 @@ import { Label } from './label.entity'
 export class Note {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
-	
-	@OneToOne(type => Label)
-	@JoinColumn()
-	type: Label;
-	
+
 	@Column()
 	title: string;
 	
 	@CreateDateColumn()
-	createTime: Date;
+	createTime: Date;	
+	
+	@ManyToOne(type => Label, label => label.notes)
+	label: Label;
 	
 	@OneToMany(type => NoteImage, noteImage => noteImage.note)
 	photos: NoteImage[]

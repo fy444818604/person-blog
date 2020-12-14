@@ -2842,24 +2842,24 @@
         "signature": "00247a519002071cec315062622af0f631a91e356822225c47f203d2406cf1cb"
       },
       "../src/entity/label.entity.ts": {
-        "version": "bd4b8a89d6e09492114c462ea0b5eba48cb929aeee36ff2d16af0f955f6a927c",
-        "signature": "1df16ab2d7c80ce04ca80e5450e3b67838593126088a4c57a8447dee0fd83d09"
+        "version": "8494591a01269cc58421135df3cd9002fd141b1122146a56b2101ff8f8be644a",
+        "signature": "00675cad599f9d24e74c3c96f8f2ef1b08b4fde7f58182a4721cf0985b5b580e"
       },
       "../src/entity/note.entity.ts": {
-        "version": "adcc6ac616c0a18df8afbd4620f9471545dbd939f0064ecae5fa3707ae608d72",
-        "signature": "d0fc95f93736736fdfee4e0b8ad5638871d743982365d58ec1dcb46b634d890a"
+        "version": "fe86eb78a0e0ef2c339359b69d3770aec3ac121dea20a46846462b1d7529bbe8",
+        "signature": "22d78056d9a18d2952e07ad3b936f3796225003d7e218eadc234c64f7b017d63"
       },
       "../src/note/dto/create-note.dto.ts": {
-        "version": "d6afc81335fa1d38abb886e49883afcc9c77026890ad2a0a8b9a473253213f22",
-        "signature": "e76eb003c18cb2a70fa60cca1fe53f8de6f8ae04621f967a0bd9bf448c310556"
+        "version": "711a2cf86c04664cc6162a171ffeb766051fda1989da54967b7919386215978b",
+        "signature": "35bcf262c878fde86b619ab671887b7952433faa090e0595c95398621bf7192f"
       },
       "../src/note/dto/search.note.dot.ts": {
-        "version": "1c07dcb41cbf54635a58cb96fcf3da7c8e57007fd71e7319d2977019a735b4b6",
-        "signature": "06da74bb6055cff1b7b680b99ab88e01edb0173d6ac82549ccd07570a85f8d80"
+        "version": "d546479fb2be9360f635358d3c4855386ac85736bdfd5302815b82e9e105ac98",
+        "signature": "469afcbc307d1967538bc7563ee31cd4952c382c89285627c909347e5aa27a85"
       },
       "../src/note/note.service.ts": {
-        "version": "bc9b414efdf6ed01daf2c5436794a96a4903f1792553f44660a95bd6a908ddb9",
-        "signature": "44e03096f8b840d771b3d113262a7117ce436282bb12841cc3f4f6decdeb5d52"
+        "version": "a8698d5e5414b0a8f4467ca56f9ee2c4fc3a4b5c980260bd26ab77f946cae1cd",
+        "signature": "1c557cc2889deb53b02d79aaeff0a34800a1b4b82b66e0cd5a7a51a8ff12df5d"
       },
       "../src/note/note.controller.ts": {
         "version": "ce7005b51913cb37c9a161ad0161c72e72b6f0d8fae3bdeb7ccb610f4148c905",
@@ -10165,6 +10165,7 @@
       ],
       "../src/entity/label.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/entity/note.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -10192,6 +10193,7 @@
       "../src/note/dto/search.note.dot.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/class-validator/index.d.ts",
+        "../src/entity/label.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -10203,6 +10205,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/entity/note.entity.ts",
         "../src/entity/note.image.entity.ts",
+        "../src/entity/label.entity.ts",
         "../src/note/dto/create-note.dto.ts",
         "../src/note/dto/search.note.dot.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -19026,6 +19029,9 @@
       "../src/entity/note.image.entity.ts": [
         "../src/entity/note.entity.ts"
       ],
+      "../src/entity/label.entity.ts": [
+        "../src/entity/note.entity.ts"
+      ],
       "../src/entity/note.entity.ts": [
         "../src/entity/label.entity.ts",
         "../src/entity/note.image.entity.ts"
@@ -19038,6 +19044,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/entity/note.entity.ts",
         "../src/entity/note.image.entity.ts",
+        "../src/entity/label.entity.ts",
         "../src/note/dto/search.note.dot.ts",
         "../src/note/dto/create-note.dto.ts"
       ],

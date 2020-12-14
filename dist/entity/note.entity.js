@@ -19,11 +19,6 @@ __decorate([
     __metadata("design:type", String)
 ], Note.prototype, "id", void 0);
 __decorate([
-    typeorm_1.OneToOne(type => label_entity_1.Label),
-    typeorm_1.JoinColumn(),
-    __metadata("design:type", label_entity_1.Label)
-], Note.prototype, "type", void 0);
-__decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Note.prototype, "title", void 0);
@@ -31,6 +26,10 @@ __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)
 ], Note.prototype, "createTime", void 0);
+__decorate([
+    typeorm_1.ManyToOne(type => label_entity_1.Label, label => label.notes),
+    __metadata("design:type", label_entity_1.Label)
+], Note.prototype, "label", void 0);
 __decorate([
     typeorm_1.OneToMany(type => note_image_entity_1.NoteImage, noteImage => noteImage.note),
     __metadata("design:type", Array)

@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from 'typeorm';
-// import { Note } from './note.entity'
+import { Note } from './note.entity'
 
 @Entity('label')
 export class Label {
@@ -15,6 +15,6 @@ export class Label {
 	@CreateDateColumn()
 	createTime: Date;
 	
-	// @OneToMany(type => Note, note => note.type)
-	// notes:Note[]
+	@OneToMany(type => Note, note => note.label)
+	notes:Note[]
 }

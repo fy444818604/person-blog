@@ -18,7 +18,7 @@ __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", label_entity_1.Label)
-], CreateNoteDto.prototype, "type", void 0);
+], CreateNoteDto.prototype, "label", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsNotEmpty(),

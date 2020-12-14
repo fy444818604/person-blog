@@ -1,5 +1,5 @@
 export declare class SearchNoteDto {
-    type: string;
+    labelId: string;
     title: string;
     current: number;
     readonly pageSize: number;

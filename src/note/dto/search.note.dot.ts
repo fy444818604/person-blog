@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber, IsString, IsDefined, ValidateIf } from 'class-validator';
+import { Label } from '../../entity/label.entity'
 
 export class SearchNoteDto {
 	@ApiProperty({ required: false })
@@ -7,7 +8,7 @@ export class SearchNoteDto {
 		return obj && typeof obj.type !== 'undefined';
 	})
 	@IsString()
-	type: string;
+	labelId: string;
 	
 	@ApiProperty({ required: false })
 	@ValidateIf(obj => {

@@ -23,7 +23,7 @@ __decorate([
     }),
     class_validator_1.IsString(),
     __metadata("design:type", String)
-], SearchNoteDto.prototype, "type", void 0);
+], SearchNoteDto.prototype, "labelId", void 0);
 __decorate([
     swagger_1.ApiProperty({ required: false }),
     class_validator_1.ValidateIf(obj => {

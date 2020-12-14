@@ -17,18 +17,21 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const note_entity_1 = require("../entity/note.entity");
 const note_image_entity_1 = require("../entity/note.image.entity");
+const label_entity_1 = require("../entity/label.entity");
 let NoteService = class NoteService {
-    constructor(notes, noteImages) {
+    constructor(notes, noteImages, label) {
         this.notes = notes;
         this.noteImages = noteImages;
+        this.label = label;
     }
     async noteSearch(searchNoteDto) {
+        console.log(searchNoteDto.labelId);
         return await this.notes.findAndCount({
             where: {
-                type: searchNoteDto.type || typeorm_2.Like("%"),
+                labelId: searchNoteDto.labelId || typeorm_2.Like("%"),
                 title: searchNoteDto.title ? typeorm_2.Like(`%${searchNoteDto.title}%`) : typeorm_2.Like("%")
             },
-            relations: ["photos", "type"],
+            relations: ["photos", "label"],
             order: {
                 createTime: "DESC"
             },
@@ -39,14 +42,26 @@ let NoteService = class NoteService {
     }
     async noteAdd(createNoteDto) {
         await this.noteImages.save(createNoteDto.photos);
-        return await this.notes.save(createNoteDto);
+        let labels = new label_entity_1.Label();
+        labels = await this.label.findOne(createNoteDto.label);
+        const noteDetail = new note_entity_1.Note();
+        noteDetail.label = labels;
+        noteDetail.title = createNoteDto.title;
+        noteDetail.photos = createNoteDto.photos;
+        console.log(noteDetail);
+        let note = await this.notes.save(noteDetail);
+        console.log(note);
+        console.log(labels);
+        return note;
     }
 };
 NoteService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(note_entity_1.Note)),
     __param(1, typeorm_1.InjectRepository(note_image_entity_1.NoteImage)),
+    __param(2, typeorm_1.InjectRepository(label_entity_1.Label)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository])
 ], NoteService);
 exports.NoteService = NoteService;
