@@ -18,4 +18,5 @@ export class LabelService {
 	async labelAdd(createLabelDto:CreateLabelDto): Promise<Label> {
 		return await this.label.save(createLabelDto)
 	}
+	
 }

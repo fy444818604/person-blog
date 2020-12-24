@@ -19,10 +19,9 @@ export class NoteService {
 	){}
 	
 	async noteSearch(searchNoteDto:SearchNoteDto): Promise<[Note[],number]> {
-		console.log(searchNoteDto.labelId)
 		return await this.notes.findAndCount({
 			where: {
-				labelId: searchNoteDto.labelId || Like("%"),
+				noteType: searchNoteDto.labelId || Like("%"),
 				title: searchNoteDto.title ? Like(`%${searchNoteDto.title}%`) : Like("%")
 			},
 			relations:["photos","label"],
@@ -35,24 +34,38 @@ export class NoteService {
 		})
 	}
 	
-	async noteAdd(createNoteDto:CreateNoteDto): Promise<Note> {
+	async noteSearchById(id:string): Promise<Note> {
+		return await this.notes.findOne(id)
+	}
+	
+	async noteAdd(createNoteDto:CreateNoteDto): Promise<any> {
 		await this.noteImages.save(createNoteDto.photos)
-		let labels = new Label()
-		labels = await this.label.findOne(createNoteDto.label)
+		let labels = await this.label.findOne(createNoteDto.labelId,{
+			relations:["notes"]
+		})
 		const noteDetail = new Note();
-		// const label = new Label();
-		// console.log(label)
-		noteDetail.label = labels;
+		noteDetail.label = {
+			id:labels.id,
+			name:labels.name,
+			pId:labels.pId,
+			createTime:labels.createTime,
+			notes:labels.notes
+		};
+		noteDetail.noteType = createNoteDto.labelId;
 		noteDetail.title = createNoteDto.title;
-		noteDetail.photos = createNoteDto.photos
-		console.log(noteDetail)
+		noteDetail.photos = createNoteDto.photos;
+		noteDetail.content = createNoteDto.content;
 		let note = await this.notes.save(noteDetail)
-		console.log(note)
 		
-		
-		console.log(labels)
-		// labels.notes = createNoteDto
+		// labels.notes = [...labels.notes,note]
 		// await this.label.save(labels)
-		return note
+		
+		return {data:note,msg:'发布文章成功'}
+	}
+	
+	async noteDel(id: string): Promise<any> {
+		console.log(id)
+		await this.notes.delete(id)
+		return {data:[],msg:'删除成功'}
 	}
 }

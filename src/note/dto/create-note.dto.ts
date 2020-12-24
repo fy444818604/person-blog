@@ -5,8 +5,10 @@ import { IsNotEmpty, MaxLength } from 'class-validator';
 
 export class CreateNoteDto {
 	@ApiProperty()
-	@IsNotEmpty()
-	label: Label;
+	labelId: string;
+	
+	@ApiProperty()
+	content: string;
 	
 	@ApiProperty()
 	@IsNotEmpty()

@@ -26,6 +26,14 @@ let UsersService = class UsersService {
     async usersAdd(usersDto) {
         return this.users.save(usersDto);
     }
+    async findUser(searchUsersDto) {
+        return await this.users.findOne({
+            where: {
+                userId: searchUsersDto.userId || typeorm_2.Like("%"),
+                username: searchUsersDto.username || typeorm_2.Like("%")
+            }
+        });
+    }
 };
 UsersService = __decorate([
     common_1.Injectable(),

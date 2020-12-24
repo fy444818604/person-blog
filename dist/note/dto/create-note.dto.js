@@ -10,15 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const swagger_1 = require("@nestjs/swagger");
-const label_entity_1 = require("../../entity/label.entity");
 const class_validator_1 = require("class-validator");
 class CreateNoteDto {
 }
 __decorate([
     swagger_1.ApiProperty(),
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", label_entity_1.Label)
-], CreateNoteDto.prototype, "label", void 0);
+    __metadata("design:type", String)
+], CreateNoteDto.prototype, "labelId", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], CreateNoteDto.prototype, "content", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsNotEmpty(),

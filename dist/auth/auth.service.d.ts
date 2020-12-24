@@ -8,4 +8,7 @@ export declare class AuthService {
     login(user: any): Promise<{
         access_token: string;
     }>;
+    getUersInfo(token: any): Promise<string | {
+        [key: string]: any;
+    }>;
 }

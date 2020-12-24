@@ -33,7 +33,6 @@ let AuthService = class AuthService {
         console.log(user);
         if (user && user.password === pass) {
             const { password } = user, result = __rest(user, ["password"]);
-            console.log(result);
             return result;
         }
         return null;
@@ -43,6 +42,10 @@ let AuthService = class AuthService {
         return {
             access_token: this.jwtService.sign(payload),
         };
+    }
+    async getUersInfo(token) {
+        console.log(token.token);
+        return this.jwtService.decode(token.token);
     }
 };
 AuthService = __decorate([

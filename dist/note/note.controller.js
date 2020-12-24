@@ -24,8 +24,14 @@ let NoteController = class NoteController {
     async findNote(searchNoteDto) {
         return this.noteService.noteSearch(searchNoteDto);
     }
+    async findNoteById(id) {
+        return this.noteService.noteSearchById(id);
+    }
     async create(createNoteDto) {
         return await this.noteService.noteAdd(createNoteDto);
+    }
+    async delete(id) {
+        return await this.noteService.noteDel(id);
     }
 };
 __decorate([
@@ -36,12 +42,26 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], NoteController.prototype, "findNote", null);
 __decorate([
+    common_1.Get('/noteSearchById/:id'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], NoteController.prototype, "findNoteById", null);
+__decorate([
     common_1.Post('/noteAdd'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_note_dto_1.CreateNoteDto]),
     __metadata("design:returntype", Promise)
 ], NoteController.prototype, "create", null);
+__decorate([
+    common_1.Get('/noteDel/:id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], NoteController.prototype, "delete", null);
 NoteController = __decorate([
     swagger_1.ApiTags('笔记'),
     common_1.Controller('note'),

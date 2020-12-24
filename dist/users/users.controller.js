@@ -16,12 +16,16 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const users_service_1 = require("./users.service");
 const users_dto_1 = require("./dto/users.dto");
+const search_users_dto_1 = require("./dto/search.users.dto");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
     async usersAdd(usersDto) {
         return this.usersService.usersAdd(usersDto);
+    }
+    async userFind(searchUsersDto) {
+        return this.usersService.findUser(searchUsersDto);
     }
 };
 __decorate([
@@ -31,6 +35,13 @@ __decorate([
     __metadata("design:paramtypes", [users_dto_1.UsersDto]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "usersAdd", null);
+__decorate([
+    common_1.Get('search'),
+    __param(0, common_1.Query()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [search_users_dto_1.SearchUsersDto]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "userFind", null);
 UsersController = __decorate([
     swagger_1.ApiTags('用户相关'),
     common_1.Controller('users'),

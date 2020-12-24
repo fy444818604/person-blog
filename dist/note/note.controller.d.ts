@@ -6,5 +6,7 @@ export declare class NoteController {
     private readonly noteService;
     constructor(noteService: NoteService);
     findNote(searchNoteDto: SearchNoteDto): Promise<[Note[], number]>;
-    create(createNoteDto: CreateNoteDto): Promise<Note>;
+    findNoteById(id: string): Promise<Note>;
+    create(createNoteDto: CreateNoteDto): Promise<any>;
+    delete(id: string): Promise<any>;
 }

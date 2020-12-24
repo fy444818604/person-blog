@@ -40,6 +40,9 @@ let AppController = class AppController {
             message: '账号/密码错误',
         }, 500);
     }
+    async getInfo(token) {
+        return await this.authService.getUersInfo(token);
+    }
     getProfile(req) {
         return req.user;
     }
@@ -61,6 +64,13 @@ __decorate([
     __metadata("design:paramtypes", [login_dto_1.LoginDto]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "login", null);
+__decorate([
+    common_1.Get('userInfo'),
+    __param(0, common_1.Query()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getInfo", null);
 __decorate([
     common_1.UseGuards(passport_1.AuthGuard('jwt')),
     common_1.Get('auth/profile'),

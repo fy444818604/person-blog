@@ -9,6 +9,8 @@ export class NoteImage {
 	@Column()
 	url: string;
 	
-	@ManyToOne(type => Note, note => note.photos)
+	@ManyToOne(type => Note, note => note.photos, {
+		onDelete: "CASCADE"
+	})
 	note: Note;
 }

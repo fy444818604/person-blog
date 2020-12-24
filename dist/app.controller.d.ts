@@ -11,6 +11,7 @@ export declare class AppController {
     login(loginDto: LoginDto): Promise<{
         access_token: string;
     }>;
+    getInfo(token: string): Promise<any>;
     getProfile(req: any): any;
     getLive(): Promise<any>;
 }

@@ -19,7 +19,9 @@ __decorate([
     __metadata("design:type", String)
 ], Note.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '标题',
+    }),
     __metadata("design:type", String)
 ], Note.prototype, "title", void 0);
 __decorate([
@@ -27,7 +29,18 @@ __decorate([
     __metadata("design:type", Date)
 ], Note.prototype, "createTime", void 0);
 __decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Note.prototype, "noteType", void 0);
+__decorate([
+    typeorm_1.Column({
+        type: 'longtext'
+    }),
+    __metadata("design:type", String)
+], Note.prototype, "content", void 0);
+__decorate([
     typeorm_1.ManyToOne(type => label_entity_1.Label, label => label.notes),
+    typeorm_1.JoinColumn(),
     __metadata("design:type", label_entity_1.Label)
 ], Note.prototype, "label", void 0);
 __decorate([
@@ -35,7 +48,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Note.prototype, "photos", void 0);
 Note = __decorate([
-    typeorm_1.Entity('note')
+    typeorm_1.Entity('note_main')
 ], Note);
 exports.Note = Note;
 //# sourceMappingURL=note.entity.js.map

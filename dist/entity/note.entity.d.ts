@@ -4,6 +4,8 @@ export declare class Note {
     id: string;
     title: string;
     createTime: Date;
+    noteType: string;
+    content: string;
     label: Label;
     photos: NoteImage[];
 }

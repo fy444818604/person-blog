@@ -25,7 +25,7 @@ export class QueryFailedFilter implements ExceptionFilter {
             exception.constraint && exception.constraint.startsWith('UQ')
                 ? HttpStatus.CONFLICT
                 : HttpStatus.INTERNAL_SERVER_ERROR;
-
+				
         response.status(status).json({
             statusCode: status,
             error: STATUS_CODES[status],

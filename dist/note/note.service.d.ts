@@ -10,5 +10,7 @@ export declare class NoteService {
     private readonly label;
     constructor(notes: Repository<Note>, noteImages: Repository<NoteImage>, label: Repository<Label>);
     noteSearch(searchNoteDto: SearchNoteDto): Promise<[Note[], number]>;
-    noteAdd(createNoteDto: CreateNoteDto): Promise<Note>;
+    noteSearchById(id: string): Promise<Note>;
+    noteAdd(createNoteDto: CreateNoteDto): Promise<any>;
+    noteDel(id: string): Promise<any>;
 }

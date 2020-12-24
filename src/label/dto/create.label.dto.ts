@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
+import { Note } from '../../entity/note.entity'
 
 export class CreateLabelDto {
 	@ApiProperty({ type: 'string' })
@@ -10,4 +11,6 @@ export class CreateLabelDto {
 	@IsNotEmpty()
 	pId: string;
 	
+	// @ApiProperty()
+	// notes:Note[]
 }

@@ -25,10 +25,9 @@ let NoteService = class NoteService {
         this.label = label;
     }
     async noteSearch(searchNoteDto) {
-        console.log(searchNoteDto.labelId);
         return await this.notes.findAndCount({
             where: {
-                labelId: searchNoteDto.labelId || typeorm_2.Like("%"),
+                noteType: searchNoteDto.labelId || typeorm_2.Like("%"),
                 title: searchNoteDto.title ? typeorm_2.Like(`%${searchNoteDto.title}%`) : typeorm_2.Like("%")
             },
             relations: ["photos", "label"],
@@ -40,19 +39,33 @@ let NoteService = class NoteService {
             cache: true
         });
     }
+    async noteSearchById(id) {
+        return await this.notes.findOne(id);
+    }
     async noteAdd(createNoteDto) {
         await this.noteImages.save(createNoteDto.photos);
-        let labels = new label_entity_1.Label();
-        labels = await this.label.findOne(createNoteDto.label);
+        let labels = await this.label.findOne(createNoteDto.labelId, {
+            relations: ["notes"]
+        });
         const noteDetail = new note_entity_1.Note();
-        noteDetail.label = labels;
+        noteDetail.label = {
+            id: labels.id,
+            name: labels.name,
+            pId: labels.pId,
+            createTime: labels.createTime,
+            notes: labels.notes
+        };
+        noteDetail.noteType = createNoteDto.labelId;
         noteDetail.title = createNoteDto.title;
         noteDetail.photos = createNoteDto.photos;
-        console.log(noteDetail);
+        noteDetail.content = createNoteDto.content;
         let note = await this.notes.save(noteDetail);
-        console.log(note);
-        console.log(labels);
-        return note;
+        return { data: note, msg: '发布文章成功' };
+    }
+    async noteDel(id) {
+        console.log(id);
+        await this.notes.delete(id);
+        return { data: [], msg: '删除成功' };
     }
 };
 NoteService = __decorate([

@@ -11,20 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
-class SearchComponentDto {
-    constructor() {
-        this.pageSize = 10;
-    }
+class SearchByIdNoteDto {
 }
 __decorate([
-    swagger_1.ApiProperty({ type: 'number' }),
+    swagger_1.ApiProperty({ type: 'string' }),
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", Number)
-], SearchComponentDto.prototype, "current", void 0);
-__decorate([
-    swagger_1.ApiProperty({ required: false, default: 10, type: 'number' }),
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", Number)
-], SearchComponentDto.prototype, "pageSize", void 0);
-exports.SearchComponentDto = SearchComponentDto;
-//# sourceMappingURL=search.component.js.map
+], SearchByIdNoteDto.prototype, "id", void 0);
+exports.SearchByIdNoteDto = SearchByIdNoteDto;
+//# sourceMappingURL=search.id.note.dot.js.map

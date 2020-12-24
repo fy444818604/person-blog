@@ -22,7 +22,9 @@ __decorate([
     __metadata("design:type", String)
 ], NoteImage.prototype, "url", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => note_entity_1.Note, note => note.photos),
+    typeorm_1.ManyToOne(type => note_entity_1.Note, note => note.photos, {
+        onDelete: "CASCADE"
+    }),
     __metadata("design:type", note_entity_1.Note)
 ], NoteImage.prototype, "note", void 0);
 NoteImage = __decorate([

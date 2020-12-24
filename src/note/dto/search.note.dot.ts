@@ -7,7 +7,7 @@ export class SearchNoteDto {
 	@ValidateIf(obj => {
 		return obj && typeof obj.type !== 'undefined';
 	})
-	@IsString()
+	@IsString() 
 	labelId: string;
 	
 	@ApiProperty({ required: false })

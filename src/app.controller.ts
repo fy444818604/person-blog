@@ -1,4 +1,4 @@
-import { Controller, Get, Res, Request, Response, Body, Post, UseGuards,HttpException, LoggerService, Inject } from '@nestjs/common';
+import { Controller, Get, Res, Request, Response, Body, Query, Post, UseGuards,HttpException, LoggerService, Inject } from '@nestjs/common';
 import { AppService } from './app.service';
 import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './auth/local-auth.guard'
@@ -38,6 +38,11 @@ export class AppController {
 		message: '账号/密码错误',
 	  }, 500)
   }
+	
+	@Get('userInfo')
+	async getInfo(@Query() token:string): Promise<any>{
+		return await this.authService.getUersInfo(token)
+	}
  
   @UseGuards(AuthGuard('jwt'))
   @Get('auth/profile')

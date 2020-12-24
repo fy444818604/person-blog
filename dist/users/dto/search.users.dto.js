@@ -9,27 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const typeorm_1 = require("typeorm");
-let Note = class Note {
-};
+const swagger_1 = require("@nestjs/swagger");
+class SearchUsersDto {
+}
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn('uuid'),
+    swagger_1.ApiProperty({ required: false }),
     __metadata("design:type", String)
-], Note.prototype, "id", void 0);
+], SearchUsersDto.prototype, "userId", void 0);
 __decorate([
-    typeorm_1.Column(),
+    swagger_1.ApiProperty({ required: false }),
     __metadata("design:type", String)
-], Note.prototype, "type", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Note.prototype, "title", void 0);
-__decorate([
-    typeorm_1.CreateDateColumn(),
-    __metadata("design:type", Object)
-], Note.prototype, "createTime", void 0);
-Note = __decorate([
-    typeorm_1.Entity('note')
-], Note);
-exports.Note = Note;
-//# sourceMappingURL=note.entity.js.map
+], SearchUsersDto.prototype, "username", void 0);
+exports.SearchUsersDto = SearchUsersDto;
+//# sourceMappingURL=search.users.dto.js.map
