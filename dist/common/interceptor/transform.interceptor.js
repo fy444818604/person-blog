@@ -11,9 +11,9 @@ const operators_1 = require("rxjs/operators");
 let TransformInterceptor = class TransformInterceptor {
     intercept(context, next) {
         return next.handle().pipe(operators_1.map(data => ({
-            "statusCode": data.statusCode || 200,
-            data: data.data != undefined ? data.data : data == undefined ? [] : data,
-            "msg": data.msg || null
+            "statusCode": (data && data.statusCode) || 200,
+            data: (data && data.data) != undefined ? data.data : data == undefined ? [] : data,
+            "msg": (data && data.msg) || null
         })));
     }
 };

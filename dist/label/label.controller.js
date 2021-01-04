@@ -23,8 +23,14 @@ let LabelController = class LabelController {
     async findLabel() {
         return await this.labelService.labelSearch();
     }
+    async findOneLabel(id) {
+        return await this.labelService.labelSearchOne(id);
+    }
     async addLabel(createLabelDto) {
         return await this.labelService.labelAdd(createLabelDto);
+    }
+    async update(id, createLabelDto) {
+        return await this.labelService.labelUpdate(id, createLabelDto);
     }
 };
 __decorate([
@@ -34,12 +40,26 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], LabelController.prototype, "findLabel", null);
 __decorate([
+    common_1.Get('/search/:id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], LabelController.prototype, "findOneLabel", null);
+__decorate([
     common_1.Post('/add'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_label_dto_1.CreateLabelDto]),
     __metadata("design:returntype", Promise)
 ], LabelController.prototype, "addLabel", null);
+__decorate([
+    common_1.Post('/edit/:id'),
+    __param(0, common_1.Param('id')), __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, create_label_dto_1.CreateLabelDto]),
+    __metadata("design:returntype", Promise)
+], LabelController.prototype, "update", null);
 LabelController = __decorate([
     swagger_1.ApiTags('标签'),
     common_1.Controller('label'),

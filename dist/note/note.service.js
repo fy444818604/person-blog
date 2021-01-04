@@ -40,7 +40,9 @@ let NoteService = class NoteService {
         });
     }
     async noteSearchById(id) {
-        return await this.notes.findOne(id);
+        return await this.notes.findOne(id, {
+            relations: ['photos', "label"]
+        });
     }
     async noteAdd(createNoteDto) {
         await this.noteImages.save(createNoteDto.photos);
@@ -63,9 +65,31 @@ let NoteService = class NoteService {
         return { data: note, msg: '发布文章成功' };
     }
     async noteDel(id) {
-        console.log(id);
         await this.notes.delete(id);
         return { data: [], msg: '删除成功' };
+    }
+    async noteUpdate(id, createNoteDto) {
+        await this.noteImages.save(createNoteDto.photos);
+        let labels = await this.label.findOne(createNoteDto.labelId, {
+            relations: ["notes"]
+        });
+        console.log(createNoteDto.photos);
+        let noteDetail = await this.notes.findOne(id, {
+            relations: ['photos', "label"]
+        });
+        noteDetail.label = {
+            id: labels.id,
+            name: labels.name,
+            pId: labels.pId,
+            createTime: labels.createTime,
+            notes: labels.notes
+        };
+        noteDetail.noteType = createNoteDto.labelId;
+        noteDetail.title = createNoteDto.title;
+        noteDetail.photos = createNoteDto.photos;
+        noteDetail.content = createNoteDto.content;
+        await this.notes.save(noteDetail);
+        return { data: [], msg: '编辑成功' };
     }
 };
 NoteService = __decorate([

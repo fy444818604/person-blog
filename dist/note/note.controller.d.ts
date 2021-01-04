@@ -9,4 +9,5 @@ export declare class NoteController {
     findNoteById(id: string): Promise<Note>;
     create(createNoteDto: CreateNoteDto): Promise<any>;
     delete(id: string): Promise<any>;
+    update(id: string, createNoteDto: CreateNoteDto): Promise<any>;
 }

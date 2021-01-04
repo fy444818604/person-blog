@@ -5,5 +5,7 @@ export declare class LabelController {
     private readonly labelService;
     constructor(labelService: LabelService);
     findLabel(): Promise<Label[]>;
+    findOneLabel(id: string): Promise<Label>;
     addLabel(createLabelDto: CreateLabelDto): Promise<Label>;
+    update(id: string, createLabelDto: CreateLabelDto): Promise<Label>;
 }

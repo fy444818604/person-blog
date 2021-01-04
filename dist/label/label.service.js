@@ -21,10 +21,22 @@ let LabelService = class LabelService {
         this.label = label;
     }
     async labelSearch() {
-        return this.label.find();
+        return this.label.find({
+            relations: ["notes"]
+        });
+    }
+    async labelSearchOne(id) {
+        return this.label.findOne(id);
     }
     async labelAdd(createLabelDto) {
         return await this.label.save(createLabelDto);
+    }
+    async labelUpdate(id, createLabelDto) {
+        let label = await this.label.findOne(id, {
+            relations: ["notes"]
+        });
+        label.name = createLabelDto.name;
+        return await this.label.save(label);
     }
 };
 LabelService = __decorate([

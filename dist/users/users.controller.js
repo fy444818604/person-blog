@@ -27,8 +27,23 @@ let UsersController = class UsersController {
     async userFind(searchUsersDto) {
         return this.usersService.findUser(searchUsersDto);
     }
+    async menuAdd(menuDto) {
+        await this.usersService.menuAdd(menuDto);
+    }
+    async menuSearch() {
+        return await this.usersService.menuSearch();
+    }
+    async getMenu(id) {
+        return await this.usersService.getMenu(id);
+    }
+    async getRoles() {
+        return await this.usersService.getRoles();
+    }
 };
 __decorate([
+    swagger_1.ApiOperation({
+        summary: '增加一个用户'
+    }),
     common_1.Post('add'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
@@ -36,12 +51,53 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "usersAdd", null);
 __decorate([
+    swagger_1.ApiOperation({
+        summary: '查询用户'
+    }),
     common_1.Get('search'),
     __param(0, common_1.Query()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [search_users_dto_1.SearchUsersDto]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "userFind", null);
+__decorate([
+    swagger_1.ApiOperation({
+        summary: '添加菜单'
+    }),
+    common_1.Post('role/menu'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "menuAdd", null);
+__decorate([
+    swagger_1.ApiOperation({
+        summary: '获取权限菜单'
+    }),
+    common_1.Get('role/menus'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "menuSearch", null);
+__decorate([
+    swagger_1.ApiOperation({
+        summary: '获取角色菜单'
+    }),
+    common_1.Get('role/menuFind/:id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "getMenu", null);
+__decorate([
+    swagger_1.ApiOperation({
+        summary: '获取所有角色'
+    }),
+    common_1.Get('role/roles'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "getRoles", null);
 UsersController = __decorate([
     swagger_1.ApiTags('用户相关'),
     common_1.Controller('users'),

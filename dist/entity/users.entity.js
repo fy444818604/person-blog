@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const role_entity_1 = require("./role.entity");
 let Users = class Users {
 };
 __decorate([
@@ -29,12 +30,9 @@ __decorate([
     __metadata("design:type", String)
 ], Users.prototype, "fullName", void 0);
 __decorate([
-    typeorm_1.Column({
-        type: "enum",
-        enum: ["admin", "editor", "ghost"],
-        default: "ghost"
-    }),
-    __metadata("design:type", String)
+    typeorm_1.OneToOne(type => role_entity_1.Role, role => role.users),
+    typeorm_1.JoinColumn(),
+    __metadata("design:type", role_entity_1.Role)
 ], Users.prototype, "roles", void 0);
 __decorate([
     typeorm_1.Column("simple-array"),

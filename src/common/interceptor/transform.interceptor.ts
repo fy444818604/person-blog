@@ -16,9 +16,9 @@ export interface Response<T> {
 export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> {
   intercept(context: ExecutionContext, next: CallHandler): Observable<Response<T>> {
     return next.handle().pipe(map(data => ({ 
-			"statusCode": data.statusCode || 200,
-			data:data.data != undefined?data.data:data == undefined?[]:data,
-			"msg":data.msg || null }
+			"statusCode": (data && data.statusCode) || 200,
+			data: (data && data.data) != undefined?data.data:data == undefined?[]:data,
+			"msg":(data && data.msg) || null }
 		)));
   }
 }

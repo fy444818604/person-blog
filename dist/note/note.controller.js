@@ -33,6 +33,9 @@ let NoteController = class NoteController {
     async delete(id) {
         return await this.noteService.noteDel(id);
     }
+    async update(id, createNoteDto) {
+        return await this.noteService.noteUpdate(id, createNoteDto);
+    }
 };
 __decorate([
     common_1.Get('/noteSearch'),
@@ -62,6 +65,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], NoteController.prototype, "delete", null);
+__decorate([
+    common_1.Post('/noteUpdate/:id'),
+    __param(0, common_1.Param('id')), __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, create_note_dto_1.CreateNoteDto]),
+    __metadata("design:returntype", Promise)
+], NoteController.prototype, "update", null);
 NoteController = __decorate([
     swagger_1.ApiTags('笔记'),
     common_1.Controller('note'),

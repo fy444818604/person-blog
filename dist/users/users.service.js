@@ -16,12 +16,21 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const users_entity_1 = require("../entity/users.entity");
+const role_menu_entity_1 = require("../entity/role_menu.entity");
+const role_entity_1 = require("../entity/role.entity");
 let UsersService = class UsersService {
-    constructor(users) {
+    constructor(users, roleMenu, roles) {
         this.users = users;
+        this.roleMenu = roleMenu;
+        this.roles = roles;
     }
     async findOne(username) {
-        return this.users.findOne({ username: username });
+        return this.users.findOne({
+            where: {
+                username: username
+            },
+            relations: ["roles"]
+        });
     }
     async usersAdd(usersDto) {
         return this.users.save(usersDto);
@@ -34,11 +43,29 @@ let UsersService = class UsersService {
             }
         });
     }
+    async menuAdd(menuDto) {
+        return await this.roleMenu.save(menuDto);
+    }
+    async getMenu(id) {
+        return await this.roles.findOne(id, {
+            relations: ["roleMenus"]
+        });
+    }
+    async menuSearch() {
+        return await this.roleMenu.find();
+    }
+    async getRoles() {
+        return await this.roles.find();
+    }
 };
 UsersService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(users_entity_1.Users)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, typeorm_1.InjectRepository(role_menu_entity_1.RoleMenu)),
+    __param(2, typeorm_1.InjectRepository(role_entity_1.Role)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository])
 ], UsersService);
 exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Role } from './role.entity'
 
 export type UserRoleType = "admin" | "editor" | "ghost"
 @Entity('user')
@@ -15,12 +16,16 @@ export class Users {
 	@Column()
 	fullName: string;
 	
-	@Column({
-		type: "enum",
-		enum: ["admin", "editor", "ghost"],
-		default: "ghost"
-	})
-	roles: UserRoleType;
+	// @Column({
+	// 	type: "enum",
+	// 	enum: ["admin", "editor", "ghost"],
+	// 	default: "ghost"
+	// })
+	// roles: UserRoleType;
+	
+	@OneToOne(type => Role,role => role.users)
+	@JoinColumn()
+	roles: Role;
 	
 	@Column("simple-array")
 	power: string[];

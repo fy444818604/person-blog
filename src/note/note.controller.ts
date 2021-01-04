@@ -30,4 +30,9 @@ export class NoteController {
 		return await this.noteService.noteDel(id)
 	}
 	
+	@Post('/noteUpdate/:id')
+	async update(@Param('id') id:string,@Body() createNoteDto:CreateNoteDto): Promise<any> {
+		return await this.noteService.noteUpdate(id, createNoteDto)
+	}
+	
 }

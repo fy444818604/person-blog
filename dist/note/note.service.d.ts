@@ -13,4 +13,5 @@ export declare class NoteService {
     noteSearchById(id: string): Promise<Note>;
     noteAdd(createNoteDto: CreateNoteDto): Promise<any>;
     noteDel(id: string): Promise<any>;
+    noteUpdate(id: string, createNoteDto: CreateNoteDto): Promise<any>;
 }

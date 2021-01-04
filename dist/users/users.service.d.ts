@@ -1,11 +1,20 @@
 import { Repository } from 'typeorm';
 import { Users } from '../entity/users.entity';
+import { RoleMenu } from '../entity/role_menu.entity';
 import { UsersDto } from './dto/users.dto';
 import { SearchUsersDto } from './dto/search.users.dto';
+import { MenuDto } from './dto/menu.dto';
+import { Role } from '../entity/role.entity';
 export declare class UsersService {
     private readonly users;
-    constructor(users: Repository<Users>);
+    private readonly roleMenu;
+    private readonly roles;
+    constructor(users: Repository<Users>, roleMenu: Repository<RoleMenu>, roles: Repository<Role>);
     findOne(username: string): Promise<Users | undefined>;
     usersAdd(usersDto: UsersDto): Promise<Users>;
     findUser(searchUsersDto: SearchUsersDto): Promise<Users>;
+    menuAdd(menuDto: MenuDto[]): Promise<any>;
+    getMenu(id: string): Promise<Role>;
+    menuSearch(): Promise<RoleMenu[]>;
+    getRoles(): Promise<Role[]>;
 }
