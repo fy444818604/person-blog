@@ -17,6 +17,7 @@ const swagger_1 = require("@nestjs/swagger");
 const users_service_1 = require("./users.service");
 const users_dto_1 = require("./dto/users.dto");
 const search_users_dto_1 = require("./dto/search.users.dto");
+const create_role_dto_1 = require("./dto/create.role.dto");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
@@ -38,6 +39,9 @@ let UsersController = class UsersController {
     }
     async getRoles() {
         return await this.usersService.getRoles();
+    }
+    async createRole(createRoleDto) {
+        return await this.usersService.createRole(createRoleDto);
     }
 };
 __decorate([
@@ -98,6 +102,16 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "getRoles", null);
+__decorate([
+    swagger_1.ApiOperation({
+        summary: '创建角色'
+    }),
+    common_1.Post('role/create'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_role_dto_1.CreateRoleDto]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "createRole", null);
 UsersController = __decorate([
     swagger_1.ApiTags('用户相关'),
     common_1.Controller('users'),

@@ -2201,9 +2201,13 @@
         "version": "4e1df1db00fbb010c89b668101fed30ce8a3cffb60fa7fa1bae34d0affaceeb5",
         "signature": "195ee6f80b2cbda650938d1d358d0ead239b123bb980f6a468b636a940059736"
       },
+      "../src/users/dto/create.role.dto.ts": {
+        "version": "9d87fb280a10020888b612e33e8b402de44d085b56ff73248638286b8c613312",
+        "signature": "58f511cd69b0448c1155164517d930200881f4eeecd98b85a82a14cd98e22642"
+      },
       "../src/users/users.service.ts": {
-        "version": "1be2996aa378b221be46df572cc21192725c9aef8f54dd5a05dae946c33b023a",
-        "signature": "2e2da0a9ba66fdb81f15a3e1eb214345d4b880893b1cfd050af9b1f876c447da"
+        "version": "1dec6f80715c571808be573474077af864f211d93a8f54dcede356d0e2c34fcf",
+        "signature": "fd74336d5da81f2503720fff4cbd93075ebd335772109b49dd51a568b09ca938"
       },
       "../node_modules/@types/node/globals.d.ts": {
         "version": "05c42320698cb6eb4052d68ef35a0f3b88291b9275f13e9a188b96119844c5b6",
@@ -2654,8 +2658,8 @@
         "signature": "a2b176f66f0b708241265fb3b417597c9c9d21912bbb7f5cc00d99af551c2078"
       },
       "../src/users/users.controller.ts": {
-        "version": "60a5854703a208901086b203cf729d1444992a90af8b2de5444a88d3d20bfb18",
-        "signature": "2a965556cc2b5aa09b641fc9b3330616888f399dec31181fb0ed38cdbfc08333"
+        "version": "b7c9914e8e2d7c6a1ce9b8740efa3fd7d44795e2c82d5ba7609959aec23b7d62",
+        "signature": "279e4eda25767201ac4b263c88d3f58d835052128534a8103afb99c9a22d87aa"
       },
       "../src/users/users.module.ts": {
         "version": "e314d8af5c2909d4ea95991e7dee8bb9248c25674cd0a79f0266f021b8c132aa",
@@ -8860,6 +8864,14 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/users/dto/create.role.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../src/entity/role_menu.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/users/users.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -8870,6 +8882,7 @@
         "../src/users/dto/search.users.dto.ts",
         "../src/users/dto/menu.dto.ts",
         "../src/entity/role.entity.ts",
+        "../src/users/dto/create.role.dto.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -9822,6 +9835,7 @@
         "../src/entity/users.entity.ts",
         "../src/entity/role.entity.ts",
         "../src/entity/role_menu.entity.ts",
+        "../src/users/dto/create.role.dto.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -17847,6 +17861,9 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/users/dto/create.role.dto.ts": [
+        "../src/entity/role_menu.entity.ts"
+      ],
       "../src/users/users.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/entity/users.entity.ts",
@@ -17854,7 +17871,8 @@
         "../src/entity/role.entity.ts",
         "../src/users/dto/users.dto.ts",
         "../src/users/dto/search.users.dto.ts",
-        "../src/users/dto/menu.dto.ts"
+        "../src/users/dto/menu.dto.ts",
+        "../src/users/dto/create.role.dto.ts"
       ],
       "../node_modules/@types/node/globals.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -18779,7 +18797,8 @@
         "../src/users/dto/search.users.dto.ts",
         "../src/users/dto/menu.dto.ts",
         "../src/entity/role_menu.entity.ts",
-        "../src/entity/role.entity.ts"
+        "../src/entity/role.entity.ts",
+        "../src/users/dto/create.role.dto.ts"
       ],
       "../node_modules/@types/range-parser/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -22412,7 +22431,6 @@
       "../src/users/dto/users.dto.ts",
       "../src/users/dto/search.users.dto.ts",
       "../src/users/dto/menu.dto.ts",
-      "../src/users/users.service.ts",
       "../node_modules/@types/node/globals.d.ts",
       "../node_modules/@types/node/assert.d.ts",
       "../node_modules/@types/node/async_hooks.d.ts",
@@ -22465,7 +22483,6 @@
       "../node_modules/@nestjs/jwt/dist/jwt.service.d.ts",
       "../node_modules/@nestjs/jwt/dist/index.d.ts",
       "../node_modules/@nestjs/jwt/index.d.ts",
-      "../src/auth/auth.service.ts",
       "../src/auth/dto/login.dto.ts",
       "../node_modules/logform/index.d.ts",
       "../node_modules/winston-transport/index.d.ts",
@@ -22478,7 +22495,6 @@
       "../node_modules/nest-winston/dist/winston.module.d.ts",
       "../node_modules/nest-winston/dist/winston.utilities.d.ts",
       "../node_modules/nest-winston/dist/index.d.ts",
-      "../src/app.controller.ts",
       "../node_modules/@nestjs/serve-static/dist/interfaces/serve-static-options.interface.d.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
@@ -22525,7 +22541,6 @@
       "../node_modules/@nestjs/serve-static/dist/serve-static.providers.d.ts",
       "../node_modules/@nestjs/serve-static/dist/index.d.ts",
       "../node_modules/@nestjs/serve-static/index.d.ts",
-      "../src/users/users.module.ts",
       "../node_modules/@types/range-parser/index.d.ts",
       "../node_modules/@types/express-serve-static-core/index.d.ts",
       "../node_modules/@types/mime/index.d.ts",
@@ -22536,11 +22551,9 @@
       "../node_modules/@types/passport/index.d.ts",
       "../node_modules/@types/passport-strategy/index.d.ts",
       "../node_modules/@types/passport-local/index.d.ts",
-      "../src/auth/local.strategy.ts",
       "../src/auth/constants.ts",
       "../node_modules/@types/passport-jwt/index.d.ts",
       "../src/auth/jwt.strategy.ts",
-      "../src/auth/auth.module.ts",
       "../src/common/middleware/logger.middleware.ts",
       "../node_modules/class-transformer/classtransformoptions.d.ts",
       "../node_modules/class-transformer/classtransformer.d.ts",
@@ -22619,7 +22632,6 @@
       "../src/label/label.service.ts",
       "../src/label/label.controller.ts",
       "../src/label/label.module.ts",
-      "../src/app.module.ts",
       "../node_modules/rxjs/internal/operators/audit.d.ts",
       "../node_modules/rxjs/internal/operators/audittime.d.ts",
       "../node_modules/rxjs/internal/operators/buffer.d.ts",
@@ -22927,7 +22939,15 @@
       "../node_modules/@types/ws/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/users/users.controller.ts"
+      "../src/users/dto/create.role.dto.ts",
+      "../src/users/users.controller.ts",
+      "../src/users/users.service.ts",
+      "../src/auth/auth.service.ts",
+      "../src/app.controller.ts",
+      "../src/users/users.module.ts",
+      "../src/auth/local.strategy.ts",
+      "../src/auth/auth.module.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.4"

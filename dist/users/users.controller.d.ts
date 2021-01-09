@@ -5,6 +5,7 @@ import { MenuDto } from './dto/menu.dto';
 import { Users } from '../entity/users.entity';
 import { Role } from '../entity/role.entity';
 import { RoleMenu } from '../entity/role_menu.entity';
+import { CreateRoleDto } from './dto/create.role.dto';
 export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);
@@ -14,4 +15,5 @@ export declare class UsersController {
     menuSearch(): Promise<RoleMenu[]>;
     getMenu(id: string): Promise<Role>;
     getRoles(): Promise<Role[]>;
+    createRole(createRoleDto: CreateRoleDto): Promise<Role>;
 }

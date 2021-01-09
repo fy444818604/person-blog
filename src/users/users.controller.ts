@@ -7,6 +7,7 @@ import { MenuDto } from './dto/menu.dto'
 import { Users } from '../entity/users.entity'
 import { Role } from '../entity/role.entity'
 import { RoleMenu } from '../entity/role_menu.entity'
+import { CreateRoleDto } from './dto/create.role.dto'
 
 @ApiTags('用户相关')
 @Controller('users')
@@ -63,4 +64,11 @@ export class UsersController {
 		return await this.usersService.getRoles()
 	}
 		
+	@ApiOperation({
+		summary:'创建角色'
+	})
+	@Post('role/create')
+	async createRole(@Body() createRoleDto:CreateRoleDto): Promise<Role> {
+		return await this.usersService.createRole(createRoleDto)
+	}
 }

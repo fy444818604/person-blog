@@ -55,7 +55,12 @@ let UsersService = class UsersService {
         return await this.roleMenu.find();
     }
     async getRoles() {
-        return await this.roles.find();
+        return await this.roles.find({
+            relations: ["roleMenus"]
+        });
+    }
+    async createRole(createRoleDto) {
+        return await this.roles.save(createRoleDto);
     }
 };
 UsersService = __decorate([

@@ -7,6 +7,7 @@ import { UsersDto } from './dto/users.dto'
 import { SearchUsersDto } from './dto/search.users.dto'
 import { MenuDto } from './dto/menu.dto'
 import { Role } from '../entity/role.entity'
+import { CreateRoleDto } from './dto/create.role.dto'
 
 // export type User = any;
 
@@ -58,6 +59,12 @@ export class UsersService {
 	}
 	
 	async getRoles(): Promise<Role[]> {
-		return await this.roles.find()
+		return await this.roles.find({
+			relations:["roleMenus"]
+		})
+	}
+	
+	async createRole(createRoleDto:CreateRoleDto): Promise<Role> {
+		return await this.roles.save(createRoleDto)
 	}
 }
