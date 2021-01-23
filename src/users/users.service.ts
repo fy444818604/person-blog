@@ -65,6 +65,20 @@ export class UsersService {
 	}
 	
 	async createRole(createRoleDto:CreateRoleDto): Promise<Role> {
-		return await this.roles.save(createRoleDto)
+		let role;
+		if(createRoleDto.id) role = await this.roles.findOne(createRoleDto.id)
+		else role = new Role()
+		role.name = createRoleDto.name
+		role.description = createRoleDto.description
+		let ids = []
+		createRoleDto.roleMenus.map(v => {
+			ids.push(v.id)
+		})
+		role.roleMenus = await this.getRolesByIds(ids)
+		return await this.roles.save(role)
+	}
+	
+	async getRolesByIds(ids){ // 用在新增使用者时候要回传Role[]
+		return await this.roleMenu.findByIds(ids);
 	}
 }

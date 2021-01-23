@@ -41,6 +41,8 @@ let UsersController = class UsersController {
         return await this.usersService.getRoles();
     }
     async createRole(createRoleDto) {
+        if (createRoleDto.id == "")
+            delete createRoleDto.id;
         return await this.usersService.createRole(createRoleDto);
     }
 };

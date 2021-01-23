@@ -19,4 +19,5 @@ export declare class UsersService {
     menuSearch(): Promise<RoleMenu[]>;
     getRoles(): Promise<Role[]>;
     createRole(createRoleDto: CreateRoleDto): Promise<Role>;
+    getRolesByIds(ids: any): Promise<RoleMenu[]>;
 }

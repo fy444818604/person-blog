@@ -69,6 +69,7 @@ export class UsersController {
 	})
 	@Post('role/create')
 	async createRole(@Body() createRoleDto:CreateRoleDto): Promise<Role> {
+		if(createRoleDto.id == "") delete createRoleDto.id
 		return await this.usersService.createRole(createRoleDto)
 	}
 }

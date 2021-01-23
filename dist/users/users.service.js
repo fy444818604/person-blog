@@ -60,7 +60,22 @@ let UsersService = class UsersService {
         });
     }
     async createRole(createRoleDto) {
-        return await this.roles.save(createRoleDto);
+        let role;
+        if (createRoleDto.id)
+            role = await this.roles.findOne(createRoleDto.id);
+        else
+            role = new role_entity_1.Role();
+        role.name = createRoleDto.name;
+        role.description = createRoleDto.description;
+        let ids = [];
+        createRoleDto.roleMenus.map(v => {
+            ids.push(v.id);
+        });
+        role.roleMenus = await this.getRolesByIds(ids);
+        return await this.roles.save(role);
+    }
+    async getRolesByIds(ids) {
+        return await this.roleMenu.findByIds(ids);
     }
 };
 UsersService = __decorate([
