@@ -5,6 +5,7 @@ export declare class Users {
     username: string;
     password: string;
     fullName: string;
+    status: boolean;
     roles: Role;
     power: string[];
 }

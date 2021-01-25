@@ -10,7 +10,7 @@ export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);
     usersAdd(usersDto: UsersDto): Promise<Users>;
-    userFind(searchUsersDto: SearchUsersDto): Promise<Users>;
+    userFind(searchUsersDto: SearchUsersDto): Promise<Users | [Users[], number]>;
     menuAdd(menuDto: MenuDto[]): Promise<any>;
     menuSearch(): Promise<RoleMenu[]>;
     getMenu(id: string): Promise<Role>;

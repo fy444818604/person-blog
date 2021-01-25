@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Note = void 0;
 const typeorm_1 = require("typeorm");
 const note_image_entity_1 = require("./note.image.entity");
 const label_entity_1 = require("./label.entity");

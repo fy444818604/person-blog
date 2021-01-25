@@ -16,6 +16,9 @@ export class Users {
 	@Column()
 	fullName: string;
 	
+	@Column()
+	status: boolean = true;
+	
 	// @Column({
 	// 	type: "enum",
 	// 	enum: ["admin", "editor", "ghost"],
@@ -28,5 +31,5 @@ export class Users {
 	roles: Role;
 	
 	@Column("simple-array")
-	power: string[];
+	power: string[] = [];
 }

@@ -35,7 +35,15 @@ export class UsersService {
 	  return this.users.save(usersDto)
   }
 	
-	async findUser(searchUsersDto:SearchUsersDto): Promise<Users> {
+	async findUser(searchUsersDto:SearchUsersDto): Promise<Users | [Users[],number]> {
+		if(searchUsersDto.current){
+			return await this.users.findAndCount({
+				relations:["roles"],
+				take: searchUsersDto.pageSize,
+				skip: (searchUsersDto.current-1)*searchUsersDto.pageSize,
+				cache: true
+			})
+		}
 		return await this.users.findOne({
 			where:{
 				userId: searchUsersDto.userId || Like("%"),

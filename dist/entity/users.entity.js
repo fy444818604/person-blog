@@ -9,9 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Users = void 0;
 const typeorm_1 = require("typeorm");
 const role_entity_1 = require("./role.entity");
 let Users = class Users {
+    constructor() {
+        this.status = true;
+        this.power = [];
+    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn("uuid"),
@@ -29,6 +34,10 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Users.prototype, "fullName", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Boolean)
+], Users.prototype, "status", void 0);
 __decorate([
     typeorm_1.OneToOne(type => role_entity_1.Role, role => role.users),
     typeorm_1.JoinColumn(),

@@ -13,7 +13,7 @@ export declare class UsersService {
     constructor(users: Repository<Users>, roleMenu: Repository<RoleMenu>, roles: Repository<Role>);
     findOne(username: string): Promise<Users | undefined>;
     usersAdd(usersDto: UsersDto): Promise<Users>;
-    findUser(searchUsersDto: SearchUsersDto): Promise<Users>;
+    findUser(searchUsersDto: SearchUsersDto): Promise<Users | [Users[], number]>;
     menuAdd(menuDto: MenuDto[]): Promise<any>;
     getMenu(id: string): Promise<Role>;
     menuSearch(): Promise<RoleMenu[]>;

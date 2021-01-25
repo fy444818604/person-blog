@@ -9,4 +9,10 @@ export class SearchUsersDto {
 	@ApiProperty({ required: false })
 	username: string;
 	
+	@ApiProperty({ required: false })
+	current: number;
+	
+	@ApiProperty({ required: false })
+	pageSize: number = 10;
+	
 }

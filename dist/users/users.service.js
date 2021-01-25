@@ -12,6 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
@@ -36,6 +37,14 @@ let UsersService = class UsersService {
         return this.users.save(usersDto);
     }
     async findUser(searchUsersDto) {
+        if (searchUsersDto.current) {
+            return await this.users.findAndCount({
+                relations: ["roles"],
+                take: searchUsersDto.pageSize,
+                skip: (searchUsersDto.current - 1) * searchUsersDto.pageSize,
+                cache: true
+            });
+        }
         return await this.users.findOne({
             where: {
                 userId: searchUsersDto.userId || typeorm_2.Like("%"),

@@ -28,7 +28,7 @@ export class UsersController {
 		summary:'查询用户'
 	})
 	@Get('search')
-	async userFind(@Query() searchUsersDto:SearchUsersDto): Promise<Users> {
+	async userFind(@Query() searchUsersDto:SearchUsersDto): Promise<Users | [Users[],number]> {
 		return this.usersService.findUser(searchUsersDto)
 	}
 	

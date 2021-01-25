@@ -13,5 +13,5 @@ export class UsersDto {
 	fullName: string;
 	
 	@ApiProperty()
-	power: string[];
+	power: string[] = [];
 }
