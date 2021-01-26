@@ -13,9 +13,13 @@ exports.UsersDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class UsersDto {
     constructor() {
-        this.power = [];
+        this.status = true;
     }
 }
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], UsersDto.prototype, "userId", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
@@ -30,7 +34,11 @@ __decorate([
 ], UsersDto.prototype, "fullName", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", Array)
-], UsersDto.prototype, "power", void 0);
+    __metadata("design:type", String)
+], UsersDto.prototype, "roles", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Boolean)
+], UsersDto.prototype, "status", void 0);
 exports.UsersDto = UsersDto;
 //# sourceMappingURL=users.dto.js.map

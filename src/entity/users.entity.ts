@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Role } from './role.entity'
 
 export type UserRoleType = "admin" | "editor" | "ghost"
@@ -7,17 +7,28 @@ export class Users {
 	@PrimaryGeneratedColumn("uuid")
 	userId: string;
 	
-	@Column()
+	@Column({
+		comment:'账号'
+	})
 	username: string;
 	
-	@Column()
+	@Column({
+		default:'123456',
+		comment:'用户密码'
+	})
 	password: string;
 	
-	@Column()
+	@Column({
+		default:'',
+		comment:'用户昵称'
+	})
 	fullName: string;
 	
-	@Column()
-	status: boolean = true;
+	@Column({
+		default:true,
+		comment:'账号状态(1:启用中,2:停用中)'
+	})
+	status: boolean;
 	
 	// @Column({
 	// 	type: "enum",
@@ -26,10 +37,14 @@ export class Users {
 	// })
 	// roles: UserRoleType;
 	
-	@OneToOne(type => Role,role => role.users)
+	@ManyToOne(type => Role,role => role.users)
 	@JoinColumn()
 	roles: Role;
 	
-	@Column("simple-array")
-	power: string[] = [];
+	// @Column({
+	// 	type:"simple-array",
+	// 	comment:'附加权限',
+	// 	nullable:true
+	// })
+	// power: string[] = [];
 }

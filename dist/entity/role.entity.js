@@ -33,8 +33,8 @@ __decorate([
     __metadata("design:type", Array)
 ], Role.prototype, "roleMenus", void 0);
 __decorate([
-    typeorm_1.OneToOne(type => users_entity_1.Users, users => users.roles),
-    __metadata("design:type", users_entity_1.Users)
+    typeorm_1.OneToMany(type => users_entity_1.Users, users => users.roles),
+    __metadata("design:type", Array)
 ], Role.prototype, "users", void 0);
 Role = __decorate([
     typeorm_1.Entity('role')

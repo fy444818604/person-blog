@@ -2857,13 +2857,13 @@
         "affectsGlobalScope": false
       },
       "../src/entity/role.entity.ts": {
-        "version": "ee70c61a9d37021bef069191779937867430cbcaa49ba3b7a72ce7c257b3357f",
-        "signature": "268d8b16c8bfcf67cd79751ac98017a17aeb403f854ec7ef8918df15bb5bcf4a",
+        "version": "e05812affbc77c19b20dfa0b68de10af9bb72878b7f22c5978837d717ca816ee",
+        "signature": "0aa811bbedf0a22c4fe64f53e5afb9c3dad6fc1f30aef89ee85bdd611484e55c",
         "affectsGlobalScope": false
       },
       "../src/entity/users.entity.ts": {
-        "version": "66fed8edd0d831762f6cd6c448e1e2329b394b63f12eaabf1d28bceee2c02134",
-        "signature": "232c4fe6462b26489c7ac4e4fd967298d1683b7b9e74bd31fc6a8d63d56b217e",
+        "version": "19e77102b5c4ff832ced7a5b0a5ac2a9d9ccbc871127a27943474c34589effba",
+        "signature": "b5398d8e655f1e3cb6cf100720808838616066b03b6ed11c195086b037112789",
         "affectsGlobalScope": false
       },
       "../node_modules/_@nestjs_swagger@4.7.12@@nestjs/swagger/dist/decorators/api-basic.decorator.d.ts": {
@@ -3142,8 +3142,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/dto/users.dto.ts": {
-        "version": "9b0e29334984d9153526b8489d4ac3ac136a8dc0860a02e743f22c43e43be5f0",
-        "signature": "8973f3bf00136efe0efa9938e767f34b31b5a7b2874c979bc82d6b091fee337f",
+        "version": "bcf16c55c7c0a62ad58e23e2d74640f9ab5b471b61e1eabf3ece3122d4659a97",
+        "signature": "b0a68e0cecf08626316a7c2644a49bcea87f210cf1a706500226a5a5c5164947",
         "affectsGlobalScope": false
       },
       "../src/users/dto/search.users.dto.ts": {
@@ -3162,7 +3162,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.service.ts": {
-        "version": "259bc19400fe723e1d0aaee22c352be1dd704646c375e94ee327b7397cd64813",
+        "version": "850add5888bad5be7e6f4e3d18bbdb10c6b5a4658200c65d463fb726565d5b43",
         "signature": "fd382457a1a878a70b45fb096790bf28d7a4f313be0644ec72283f9e34ff8a11",
         "affectsGlobalScope": false
       },
@@ -3502,7 +3502,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.controller.ts": {
-        "version": "06f0ebf817a89cf19a490c26f4e5c4218dbdb8aac038ba6f7a5820d4135c6e6d",
+        "version": "8f073774c0713a081e0b2004ea03f261e81b465eed3ff1108c369af76e4179d1",
         "signature": "4f72a4cd177b81d69132c3c2f33abe3020e46c5c03e4922a81b7b8d664c9cb83",
         "affectsGlobalScope": false
       },

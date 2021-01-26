@@ -5,5 +5,5 @@ export declare class Role {
     name: string;
     description: string;
     roleMenus: RoleMenu[];
-    users: Users;
+    users: Users[];
 }

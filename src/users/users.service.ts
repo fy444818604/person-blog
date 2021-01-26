@@ -32,7 +32,24 @@ export class UsersService {
   }
   
   async usersAdd(usersDto:UsersDto): Promise<Users> {
-	  return this.users.save(usersDto)
+		let user;
+		if(usersDto.userId == ''){
+		  user = new Users
+		}else {
+			user = await this.users.findOne(usersDto.userId)
+		}
+		if(usersDto.status) {
+			user.status = usersDto.status
+			console.log(user)
+			return this.users.save(user)
+		}
+		user.username = usersDto.username
+		user.fullName = usersDto.fullName
+		if(usersDto.roles != ''){
+			user.roles = await this.roles.findOne(usersDto.roles)
+		} 
+		
+	  return this.users.save(user)
   }
 	
 	async findUser(searchUsersDto:SearchUsersDto): Promise<Users | [Users[],number]> {
@@ -45,6 +62,7 @@ export class UsersService {
 			})
 		}
 		return await this.users.findOne({
+			relations:["roles"],
 			where:{
 				userId: searchUsersDto.userId || Like("%"),
 				username: searchUsersDto.username || Like("%")

@@ -49,7 +49,7 @@ let UsersController = class UsersController {
 };
 __decorate([
     swagger_1.ApiOperation({
-        summary: '增加一个用户'
+        summary: '增加/更新一个用户'
     }),
     common_1.Post('add'),
     __param(0, common_1.Body()),

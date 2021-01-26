@@ -17,7 +17,7 @@ export class UsersController {
 	){}
 	
 	@ApiOperation({
-		summary:'增加一个用户'
+		summary:'增加/更新一个用户'
 	})
 	@Post('add')
 	async usersAdd(@Body() usersDto:UsersDto): Promise<Users> {

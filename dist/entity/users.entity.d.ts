@@ -7,5 +7,4 @@ export declare class Users {
     fullName: string;
     status: boolean;
     roles: Role;
-    power: string[];
 }

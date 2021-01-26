@@ -4,6 +4,9 @@ import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 export class UsersDto {
 	
 	@ApiProperty()
+	userId: string;
+	
+	@ApiProperty()
 	username: string;
 	
 	@ApiProperty()
@@ -13,5 +16,11 @@ export class UsersDto {
 	fullName: string;
 	
 	@ApiProperty()
-	power: string[] = [];
+	roles: string;
+	
+	@ApiProperty()
+	status: boolean = true;
+	
+	// @ApiProperty()
+	// power: string[] = [];
 }

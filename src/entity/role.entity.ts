@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable, OneToOne } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { RoleMenu } from './role_menu.entity'
 import { Users } from './users.entity'
 
@@ -17,6 +17,6 @@ export class Role {
 	@JoinTable()
 	roleMenus:RoleMenu[]
 	
-	@OneToOne(type => Users,users => users.roles)
-	users:Users
+	@OneToMany(type => Users,users => users.roles)
+	users:Users[]
 }

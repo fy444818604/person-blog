@@ -13,40 +13,43 @@ exports.Users = void 0;
 const typeorm_1 = require("typeorm");
 const role_entity_1 = require("./role.entity");
 let Users = class Users {
-    constructor() {
-        this.status = true;
-        this.power = [];
-    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn("uuid"),
     __metadata("design:type", String)
 ], Users.prototype, "userId", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '账号'
+    }),
     __metadata("design:type", String)
 ], Users.prototype, "username", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        default: '123456',
+        comment: '用户密码'
+    }),
     __metadata("design:type", String)
 ], Users.prototype, "password", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        default: '',
+        comment: '用户昵称'
+    }),
     __metadata("design:type", String)
 ], Users.prototype, "fullName", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        default: true,
+        comment: '账号状态(1:启用中,2:停用中)'
+    }),
     __metadata("design:type", Boolean)
 ], Users.prototype, "status", void 0);
 __decorate([
-    typeorm_1.OneToOne(type => role_entity_1.Role, role => role.users),
+    typeorm_1.ManyToOne(type => role_entity_1.Role, role => role.users),
     typeorm_1.JoinColumn(),
     __metadata("design:type", role_entity_1.Role)
 ], Users.prototype, "roles", void 0);
-__decorate([
-    typeorm_1.Column("simple-array"),
-    __metadata("design:type", Array)
-], Users.prototype, "power", void 0);
 Users = __decorate([
     typeorm_1.Entity('user')
 ], Users);
