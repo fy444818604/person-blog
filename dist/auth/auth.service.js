@@ -31,7 +31,6 @@ let AuthService = class AuthService {
     }
     async validateUser(username, pass) {
         const user = await this.usersService.findOne(username);
-        console.log(user);
         if (user && user.password === pass) {
             const { password } = user, result = __rest(user, ["password"]);
             return result;
@@ -39,13 +38,13 @@ let AuthService = class AuthService {
         return null;
     }
     async login(user) {
-        const payload = { username: user.username, userId: user.userId, roles: user.roles, power: user.power };
+        const payload = { username: user.username, userId: user.userId, roles: user.roles, power: user.power, fullName: user.fullName };
+        console.log(payload);
         return {
             access_token: this.jwtService.sign(payload),
         };
     }
     async getUersInfo(token) {
-        console.log(token.token);
         return this.jwtService.decode(token.token);
     }
 };
