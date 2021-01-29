@@ -19,11 +19,13 @@ const photos_service_1 = require("./photos.service");
 const photos_search_dto_1 = require("./dto/photos_search.dto");
 const photos_add_dto_1 = require("./dto/photos_add.dto");
 const photos_item_add_dto_1 = require("./dto/photos_item_add.dto");
+const userInfo_decorator_1 = require("../common/decorator/userInfo.decorator");
 let PhotosController = class PhotosController {
     constructor(photosService) {
         this.photosService = photosService;
     }
-    async findPhotos(searchPhotosDto) {
+    async findPhotos(userInfo, searchPhotosDto) {
+        console.log(userInfo);
         return this.photosService.photosSearch(searchPhotosDto);
     }
     async createPhotos(photosAddDto) {
@@ -38,9 +40,9 @@ let PhotosController = class PhotosController {
 };
 __decorate([
     common_1.Get('/search'),
-    __param(0, common_1.Query()),
+    __param(0, userInfo_decorator_1.UserInfo()), __param(1, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [photos_search_dto_1.SearchPhotosDto]),
+    __metadata("design:paramtypes", [Object, photos_search_dto_1.SearchPhotosDto]),
     __metadata("design:returntype", Promise)
 ], PhotosController.prototype, "findPhotos", null);
 __decorate([

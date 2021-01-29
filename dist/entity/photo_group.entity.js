@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PhotoGroup = void 0;
 const typeorm_1 = require("typeorm");
 const photos_entity_1 = require("./photos.entity");
+const users_entity_1 = require("./users.entity");
 let PhotoGroup = class PhotoGroup {
 };
 __decorate([
@@ -27,7 +28,7 @@ __decorate([
     __metadata("design:type", String)
 ], PhotoGroup.prototype, "name", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.ManyToOne(type => users_entity_1.Users, users => users.photoGroups),
     __metadata("design:type", String)
 ], PhotoGroup.prototype, "user", void 0);
 __decorate([

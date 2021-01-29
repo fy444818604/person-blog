@@ -6,6 +6,7 @@ import { PhotosAddDto } from './dto/photos_add.dto'
 import { PhotosItemAddDto } from './dto/photos_item_add.dto'
 import { Photos } from '../entity/photos.entity'
 import { PhotoGroup } from '../entity/photo_group.entity'
+import { UserInfo } from '../common/decorator/userInfo.decorator'
 
 @ApiTags('照片')
 @Controller('photos')
@@ -13,7 +14,8 @@ export class PhotosController {
 	constructor(private readonly photosService:PhotosService){}
 	
 	@Get('/search')
-	async findPhotos(@Query() searchPhotosDto:SearchPhotosDto): Promise<PhotoGroup[]> {
+	async findPhotos(@UserInfo() userInfo: Object,@Query() searchPhotosDto:SearchPhotosDto): Promise<PhotoGroup[]> {
+		console.log(userInfo)
 		return this.photosService.photosSearch(searchPhotosDto)
 	}
 	

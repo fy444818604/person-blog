@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Users = void 0;
 const typeorm_1 = require("typeorm");
 const role_entity_1 = require("./role.entity");
+const photo_group_entity_1 = require("./photo_group.entity");
 let Users = class Users {
 };
 __decorate([
@@ -50,6 +51,10 @@ __decorate([
     typeorm_1.JoinColumn(),
     __metadata("design:type", role_entity_1.Role)
 ], Users.prototype, "roles", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => photo_group_entity_1.PhotoGroup, photoGroup => photoGroup.user),
+    __metadata("design:type", Array)
+], Users.prototype, "photoGroups", void 0);
 Users = __decorate([
     typeorm_1.Entity('user')
 ], Users);

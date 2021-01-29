@@ -7,7 +7,7 @@ import { PhotoGroup } from '../entity/photo_group.entity';
 export declare class PhotosController {
     private readonly photosService;
     constructor(photosService: PhotosService);
-    findPhotos(searchPhotosDto: SearchPhotosDto): Promise<PhotoGroup[]>;
+    findPhotos(userInfo: Object, searchPhotosDto: SearchPhotosDto): Promise<PhotoGroup[]>;
     createPhotos(photosAddDto: PhotosAddDto): Promise<PhotoGroup>;
     findItem(id: string): Promise<Photos[]>;
     createItem(photosItemAddDto: PhotosItemAddDto): Promise<Photos>;

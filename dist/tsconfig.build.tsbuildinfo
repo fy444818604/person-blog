@@ -2861,9 +2861,19 @@
         "signature": "0aa811bbedf0a22c4fe64f53e5afb9c3dad6fc1f30aef89ee85bdd611484e55c",
         "affectsGlobalScope": false
       },
+      "../src/entity/photos.entity.ts": {
+        "version": "936d2c9178095d2f0048d741334112de26207d4165019ca9295ce73c52737e87",
+        "signature": "28824e648b1ce8e84f623a5bc359343bbbbdf2c6a3eebd48906ccaf3819c51c7",
+        "affectsGlobalScope": false
+      },
+      "../src/entity/photo_group.entity.ts": {
+        "version": "b96e3e02ec2abbdb24d82f1d1e0fb7d4dd0d43e4a978dec63842478c46c2b24a",
+        "signature": "0f627220a46d67e3649651058e847b2bdf6bd35f25fd5f0cabc13f5ce45e68e3",
+        "affectsGlobalScope": false
+      },
       "../src/entity/users.entity.ts": {
-        "version": "19e77102b5c4ff832ced7a5b0a5ac2a9d9ccbc871127a27943474c34589effba",
-        "signature": "b5398d8e655f1e3cb6cf100720808838616066b03b6ed11c195086b037112789",
+        "version": "ef63e4a129445ff9370a3a707a9a974d7d7a4d11ef3fe91fdebd8291abc57120",
+        "signature": "90a9872ab9708a99a6705c3a3fb6e8047b60c15082fa27bcfca3090fdbec5d3f",
         "affectsGlobalScope": false
       },
       "../node_modules/_@nestjs_swagger@4.7.12@@nestjs/swagger/dist/decorators/api-basic.decorator.d.ts": {
@@ -3861,24 +3871,19 @@
         "signature": "aae242a51422cf91c68891770ca214331569dd87f690fe4acc236609512e6b2a",
         "affectsGlobalScope": false
       },
-      "../src/entity/photo_group.entity.ts": {
-        "version": "06e31231c2e002689b2a5a05d94b3aea42cbc01d3a0708577b8a9ad837ee7aa5",
-        "signature": "0f627220a46d67e3649651058e847b2bdf6bd35f25fd5f0cabc13f5ce45e68e3",
-        "affectsGlobalScope": false
-      },
-      "../src/entity/photos.entity.ts": {
-        "version": "936d2c9178095d2f0048d741334112de26207d4165019ca9295ce73c52737e87",
-        "signature": "28824e648b1ce8e84f623a5bc359343bbbbdf2c6a3eebd48906ccaf3819c51c7",
-        "affectsGlobalScope": false
-      },
       "../src/photos/photos.service.ts": {
         "version": "6dec3a9cde9c3a66aa3706075b8a82836f1eed0a8f40443de65101e2ddff33dd",
         "signature": "446c60b511bd67256c176497768215b402571e67d6d843f0c1aa1eaf585522b5",
         "affectsGlobalScope": false
       },
+      "../src/common/decorator/userinfo.decorator.ts": {
+        "version": "d3c56bcd1644ddf0fd9f2dda4f172b47532dbd19d2b5ebd2180ba9d1b4f2a131",
+        "signature": "b4f52deb33db9879632f273368ece8fcac1421b9585c3426eb52a95ccd6538c0",
+        "affectsGlobalScope": false
+      },
       "../src/photos/photos.controller.ts": {
-        "version": "88a262086f1888d0aa0a17dc5d27ad992def45e3ff12fd465f238a644b508812",
-        "signature": "0431dfbb660a29e728efe4aacea082303ddaeee23d66b5d76f88c90f960b1ae1",
+        "version": "6a6dcde5776925195110d8893de1660d92afdb9eb8a13843941b3c3a1a1ad356",
+        "signature": "2f8d335e5ce2c024f139715d5f7e847d1802f6fdaf4b5deb3d8dadcb00c61260",
         "affectsGlobalScope": false
       },
       "../src/photos/photos.module.ts": {
@@ -9600,6 +9605,10 @@
       "../src/common/decorator/user.decorator.ts": [
         "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts"
       ],
+      "../src/common/decorator/userinfo.decorator.ts": [
+        "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts",
+        "../src/auth/auth.service.ts"
+      ],
       "../src/common/exception/bad-request.filter.ts": [
         "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts",
         "../node_modules/_@nestjs_core@7.6.5@@nestjs/core/index.d.ts",
@@ -9708,7 +9717,8 @@
       ],
       "../src/entity/photo_group.entity.ts": [
         "../node_modules/_typeorm@0.2.30@typeorm/index.d.ts",
-        "../src/entity/photos.entity.ts"
+        "../src/entity/photos.entity.ts",
+        "../src/entity/users.entity.ts"
       ],
       "../src/entity/photos.entity.ts": [
         "../node_modules/_typeorm@0.2.30@typeorm/index.d.ts",
@@ -9725,6 +9735,7 @@
       ],
       "../src/entity/users.entity.ts": [
         "../node_modules/_typeorm@0.2.30@typeorm/index.d.ts",
+        "../src/entity/photo_group.entity.ts",
         "../src/entity/role.entity.ts"
       ],
       "../src/label/dto/create.label.dto.ts": [
@@ -9826,6 +9837,7 @@
       "../src/photos/photos.controller.ts": [
         "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts",
         "../node_modules/_@nestjs_swagger@4.7.12@@nestjs/swagger/index.d.ts",
+        "../src/common/decorator/userinfo.decorator.ts",
         "../src/entity/photo_group.entity.ts",
         "../src/entity/photos.entity.ts",
         "../src/photos/dto/photos_add.dto.ts",
@@ -13926,6 +13938,9 @@
       "../src/common/decorator/user.decorator.ts": [
         "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts"
       ],
+      "../src/common/decorator/userinfo.decorator.ts": [
+        "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts"
+      ],
       "../src/common/exception/bad-request.filter.ts": [
         "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts",
         "../node_modules/_@nestjs_core@7.6.5@@nestjs/core/index.d.ts"
@@ -14007,6 +14022,7 @@
         "../src/entity/role.entity.ts"
       ],
       "../src/entity/users.entity.ts": [
+        "../src/entity/photo_group.entity.ts",
         "../src/entity/role.entity.ts"
       ],
       "../src/label/label.controller.ts": [
@@ -15128,6 +15144,7 @@
       "../src/auth/roles.guard.ts",
       "../src/common/decorator/roles.decorator.ts",
       "../src/common/decorator/user.decorator.ts",
+      "../src/common/decorator/userinfo.decorator.ts",
       "../src/common/exception/bad-request.filter.ts",
       "../src/common/exception/constraint-errors.ts",
       "../src/common/exception/http-requers.filter.ts",

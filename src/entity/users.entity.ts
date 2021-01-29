@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { Role } from './role.entity'
+import { PhotoGroup } from './photo_group.entity'
 
 export type UserRoleType = "admin" | "editor" | "ghost"
 @Entity('user')
@@ -41,6 +42,8 @@ export class Users {
 	@JoinColumn()
 	roles: Role;
 	
+	@OneToMany(type => PhotoGroup,photoGroup => photoGroup.user)
+	photoGroups: PhotoGroup[]
 	// @Column({
 	// 	type:"simple-array",
 	// 	comment:'附加权限',

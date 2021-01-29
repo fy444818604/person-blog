@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne } from 'typeorm';
 import { Photos } from './photos.entity'
+import { Users } from './users.entity'
 
 @Entity('photo_group')
 export class PhotoGroup {
@@ -12,7 +13,7 @@ export class PhotoGroup {
 	@Column()
 	name: string;
 	
-	@Column()
+	@ManyToOne(type => Users,users => users.photoGroups)
 	user: string;
 	
 	@CreateDateColumn()
