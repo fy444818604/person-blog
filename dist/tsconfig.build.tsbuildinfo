@@ -3877,7 +3877,7 @@
         "affectsGlobalScope": false
       },
       "../src/common/decorator/userinfo.decorator.ts": {
-        "version": "d3c56bcd1644ddf0fd9f2dda4f172b47532dbd19d2b5ebd2180ba9d1b4f2a131",
+        "version": "2120c5d2950926d69f099f3db09ee279c6de2b57f20d4894be92e701d221c76e",
         "signature": "b4f52deb33db9879632f273368ece8fcac1421b9585c3426eb52a95ccd6538c0",
         "affectsGlobalScope": false
       },
@@ -4719,6 +4719,11 @@
       "../src/common/exception/http-requers.filter.ts": {
         "version": "d1883a084a811aa96c13f77f7b26df9e58b712fae3972929aefb4928aaa357e3",
         "signature": "4b0323cff4c8d52bd550e48e04cb24aec48ef5024c65078a17e333df26f9228d",
+        "affectsGlobalScope": false
+      },
+      "../src/common/interceptor/auth-user-interceptor.service.ts": {
+        "version": "a6a9aab62a8ce3ec0f949d68dc5ff755efdcbf6e5e689c004784c320088ac676",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
       "../src/common/interceptor/exception.interceptor.ts": {
@@ -15149,6 +15154,7 @@
       "../src/common/exception/constraint-errors.ts",
       "../src/common/exception/http-requers.filter.ts",
       "../src/common/exception/query-failed.filter.ts",
+      "../src/common/interceptor/auth-user-interceptor.service.ts",
       "../src/common/interceptor/exception.interceptor.ts",
       "../src/common/interceptor/logging.interceptor.ts",
       "../src/common/interceptor/timeout.interceptor.ts",

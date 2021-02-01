@@ -12,7 +12,7 @@ export const UserInfo = createParamDecorator(
     const request = ctx.switchToHttp().getRequest();
     const token = request.headers.cookie.split('Admin-Token=')[1];
 		// const info = await this.authService.getUersInfo(token)
-		console.log(this)
+		console.log(request.user)
 		
 		return '111'
     // return data ? user && user[data] : user;
