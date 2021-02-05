@@ -29,8 +29,12 @@ __decorate([
 ], PhotoGroup.prototype, "name", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => users_entity_1.Users, users => users.photoGroups),
-    __metadata("design:type", String)
+    __metadata("design:type", users_entity_1.Users)
 ], PhotoGroup.prototype, "user", void 0);
+__decorate([
+    typeorm_1.RelationId((photoGroup) => photoGroup.user),
+    __metadata("design:type", String)
+], PhotoGroup.prototype, "userId", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)

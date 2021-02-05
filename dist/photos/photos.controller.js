@@ -24,9 +24,8 @@ let PhotosController = class PhotosController {
     constructor(photosService) {
         this.photosService = photosService;
     }
-    async findPhotos(userInfo, searchPhotosDto) {
-        console.log(userInfo);
-        return this.photosService.photosSearch(searchPhotosDto);
+    async findPhotos(userId, searchPhotosDto) {
+        return this.photosService.photosSearch(userId, searchPhotosDto);
     }
     async createPhotos(photosAddDto) {
         return this.photosService.photosAdd(photosAddDto);
@@ -40,9 +39,9 @@ let PhotosController = class PhotosController {
 };
 __decorate([
     common_1.Get('/search'),
-    __param(0, userInfo_decorator_1.UserInfo()), __param(1, common_1.Query()),
+    __param(0, userInfo_decorator_1.UserInfo('userId')), __param(1, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, photos_search_dto_1.SearchPhotosDto]),
+    __metadata("design:paramtypes", [String, photos_search_dto_1.SearchPhotosDto]),
     __metadata("design:returntype", Promise)
 ], PhotosController.prototype, "findPhotos", null);
 __decorate([

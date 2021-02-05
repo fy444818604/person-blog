@@ -23,13 +23,24 @@ let PhotosService = class PhotosService {
         this.photo = photo;
         this.photoGroup = photoGroup;
     }
-    async photosSearch(searchPhotosDto) {
-        return await this.photoGroup.find({
-            where: {
-                user: searchPhotosDto.user
-            },
-            relations: ["photos"]
-        });
+    async photosSearch(userId, searchPhotosDto) {
+        if (searchPhotosDto.user) {
+            return await this.photoGroup.find({
+                where: {
+                    user: searchPhotosDto.user
+                },
+                relations: ["photos"]
+            });
+        }
+        else {
+            console.log(userId);
+            return await this.photoGroup.find({
+                where: {
+                    userId: userId
+                },
+                relations: ["photos"]
+            });
+        }
     }
     async photosAdd(photosAddDto) {
         Object.assign(photosAddDto, { cover: '' });

@@ -2867,8 +2867,8 @@
         "affectsGlobalScope": false
       },
       "../src/entity/photo_group.entity.ts": {
-        "version": "b96e3e02ec2abbdb24d82f1d1e0fb7d4dd0d43e4a978dec63842478c46c2b24a",
-        "signature": "0f627220a46d67e3649651058e847b2bdf6bd35f25fd5f0cabc13f5ce45e68e3",
+        "version": "39c2d91779850d8419572549fa01049c8b0366f02d5d6c659e3a85332581cc59",
+        "signature": "8e84433c824b7add97bf7b5d7fdc4f6536c90181092b990e2085d1a17e012a92",
         "affectsGlobalScope": false
       },
       "../src/entity/users.entity.ts": {
@@ -3872,18 +3872,18 @@
         "affectsGlobalScope": false
       },
       "../src/photos/photos.service.ts": {
-        "version": "6dec3a9cde9c3a66aa3706075b8a82836f1eed0a8f40443de65101e2ddff33dd",
-        "signature": "446c60b511bd67256c176497768215b402571e67d6d843f0c1aa1eaf585522b5",
+        "version": "9f1f05384ce7b361ac33d1b897b9e2734b0ea02481d80f5850ecb2c0aa9cf401",
+        "signature": "98ec4081ad522d035f9362049a982e7d9abc286205fe13a59e7ed9e360861801",
         "affectsGlobalScope": false
       },
       "../src/common/decorator/userinfo.decorator.ts": {
-        "version": "2120c5d2950926d69f099f3db09ee279c6de2b57f20d4894be92e701d221c76e",
+        "version": "a2441209cbbe591fd00f2369be8cba4e5fed5edea9f12a32daf7e87287e0a621",
         "signature": "b4f52deb33db9879632f273368ece8fcac1421b9585c3426eb52a95ccd6538c0",
         "affectsGlobalScope": false
       },
       "../src/photos/photos.controller.ts": {
-        "version": "6a6dcde5776925195110d8893de1660d92afdb9eb8a13843941b3c3a1a1ad356",
-        "signature": "2f8d335e5ce2c024f139715d5f7e847d1802f6fdaf4b5deb3d8dadcb00c61260",
+        "version": "138acc977481c63e2e24290e053dc79c0ee4c64ecead84ae59f7fa79341a557e",
+        "signature": "4c2a9e451c208754c65a26866eeab3721cec57483111412cfac2b8ce771ac0f7",
         "affectsGlobalScope": false
       },
       "../src/photos/photos.module.ts": {
@@ -4739,6 +4739,11 @@
       "../src/common/interceptor/timeout.interceptor.ts": {
         "version": "e44311c18f445ec5cd63046a29067a2f78a8b1578c7d56bdb2cad610e1d4badd",
         "signature": "77bc2663cdc2a316b87a1c78739202be23501d3cb80e36b36c41e35f7f868812",
+        "affectsGlobalScope": false
+      },
+      "../src/common/middleware/auth.middleware.ts": {
+        "version": "c7abf1439037ffcf5d5865ec655f14aea67e7c5602d0f9203f0dad514655390a",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
       "../src/entity/note_watch_record.entity.ts": {
@@ -9611,8 +9616,7 @@
         "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts"
       ],
       "../src/common/decorator/userinfo.decorator.ts": [
-        "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts",
-        "../src/auth/auth.service.ts"
+        "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts"
       ],
       "../src/common/exception/bad-request.filter.ts": [
         "../node_modules/_@nestjs_common@7.6.5@@nestjs/common/index.d.ts",
@@ -14014,7 +14018,8 @@
         "../src/entity/users.entity.ts"
       ],
       "../src/entity/photo_group.entity.ts": [
-        "../src/entity/photos.entity.ts"
+        "../src/entity/photos.entity.ts",
+        "../src/entity/users.entity.ts"
       ],
       "../src/entity/photos.entity.ts": [
         "../src/entity/photo_group.entity.ts"
@@ -15159,6 +15164,7 @@
       "../src/common/interceptor/logging.interceptor.ts",
       "../src/common/interceptor/timeout.interceptor.ts",
       "../src/common/interceptor/transform.interceptor.ts",
+      "../src/common/middleware/auth.middleware.ts",
       "../src/common/middleware/logger.middleware.ts",
       "../src/common/pipe/validation.pipe.ts",
       "../src/component/component.controller.ts",
@@ -15193,7 +15199,79 @@
       "../src/photos/dto/photos_search.dto.ts",
       "../src/photos/photos.controller.ts",
       "../src/photos/photos.module.ts",
-      "../src/photos/photos.service.ts",
+      [
+        "../src/photos/photos.service.ts",
+        [
+          {
+            "file": "../src/photos/photos.service.ts",
+            "start": 1185,
+            "length": 47,
+            "code": 2740,
+            "category": 1,
+            "messageText": "Type 'DeepPartial<PhotoGroup>[]' is missing the following properties from type 'PhotoGroup': id, cover, name, user, and 3 more."
+          },
+          {
+            "file": "../src/photos/photos.service.ts",
+            "start": 1219,
+            "length": 12,
+            "code": 2769,
+            "category": 1,
+            "messageText": {
+              "messageText": "No overload matches this call.",
+              "category": 1,
+              "code": 2769,
+              "next": [
+                {
+                  "messageText": "Overload 1 of 4, '(entities: DeepPartial<PhotoGroup>[], options?: SaveOptions): Promise<(DeepPartial<PhotoGroup> & PhotoGroup)[]>', gave the following error.",
+                  "category": 1,
+                  "code": 2772,
+                  "next": [
+                    {
+                      "messageText": "Argument of type 'PhotosAddDto' is not assignable to parameter of type 'DeepPartial<PhotoGroup>[]'.",
+                      "category": 1,
+                      "code": 2345,
+                      "next": [
+                        {
+                          "messageText": "Type 'PhotosAddDto' is missing the following properties from type 'DeepPartial<PhotoGroup>[]': length, pop, push, concat, and 26 more.",
+                          "category": 1,
+                          "code": 2740
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "messageText": "Overload 2 of 4, '(entity: DeepPartial<PhotoGroup>, options?: SaveOptions): Promise<DeepPartial<PhotoGroup> & PhotoGroup>', gave the following error.",
+                  "category": 1,
+                  "code": 2772,
+                  "next": [
+                    {
+                      "messageText": "Argument of type 'PhotosAddDto' is not assignable to parameter of type 'DeepPartial<PhotoGroup>'.",
+                      "category": 1,
+                      "code": 2345,
+                      "next": [
+                        {
+                          "messageText": "Types of property 'user' are incompatible.",
+                          "category": 1,
+                          "code": 2326,
+                          "next": [
+                            {
+                              "messageText": "Type 'string' is not assignable to type 'Users | DeepPartial<Users>'.",
+                              "category": 1,
+                              "code": 2322
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "relatedInformation": []
+          }
+        ]
+      ],
       "../src/upload/dto/file.upload.dto.ts",
       "../src/upload/upload.controller.ts",
       "../src/upload/upload.module.ts",

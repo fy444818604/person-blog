@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne, JoinColumn, RelationId } from 'typeorm';
 import { Photos } from './photos.entity'
 import { Users } from './users.entity'
 
@@ -14,7 +14,10 @@ export class PhotoGroup {
 	name: string;
 	
 	@ManyToOne(type => Users,users => users.photoGroups)
-	user: string;
+	user: Users;
+	
+	@RelationId((photoGroup:PhotoGroup) => photoGroup.user)
+	userId:string
 	
 	@CreateDateColumn()
 	createTime: Date;

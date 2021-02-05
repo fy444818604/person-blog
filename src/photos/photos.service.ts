@@ -16,13 +16,23 @@ export class PhotosService {
 		private readonly photoGroup: Repository<PhotoGroup>
 	){}
 	
-	async photosSearch(searchPhotosDto:SearchPhotosDto):Promise<PhotoGroup[]> {
-		return await this.photoGroup.find({
-			where: {
-				user:searchPhotosDto.user
-			},
-			relations:["photos"]
-		})
+	async photosSearch(userId: string,searchPhotosDto:SearchPhotosDto):Promise<PhotoGroup[]> {
+		if(searchPhotosDto.user){
+			return await this.photoGroup.find({
+				where: {
+					user:searchPhotosDto.user
+				},
+				relations:["photos"]
+			})
+		}else {
+			console.log(userId)
+			return await this.photoGroup.find({
+				where: {
+					userId:userId
+				},
+				relations:["photos"]
+			})
+		}
 	}
 	
 	async photosAdd(photosAddDto:PhotosAddDto): Promise<PhotoGroup> {

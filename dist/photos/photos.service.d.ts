@@ -8,7 +8,7 @@ export declare class PhotosService {
     private readonly photo;
     private readonly photoGroup;
     constructor(photo: Repository<Photos>, photoGroup: Repository<PhotoGroup>);
-    photosSearch(searchPhotosDto: SearchPhotosDto): Promise<PhotoGroup[]>;
+    photosSearch(userId: string, searchPhotosDto: SearchPhotosDto): Promise<PhotoGroup[]>;
     photosAdd(photosAddDto: PhotosAddDto): Promise<PhotoGroup>;
     photosItemSearch(id: string): Promise<Photos[]>;
     photosItemAdd(photosItemAddDto: PhotosItemAddDto): Promise<Photos>;

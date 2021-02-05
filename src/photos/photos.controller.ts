@@ -14,9 +14,8 @@ export class PhotosController {
 	constructor(private readonly photosService:PhotosService){}
 	
 	@Get('/search')
-	async findPhotos(@UserInfo() userInfo: Object,@Query() searchPhotosDto:SearchPhotosDto): Promise<PhotoGroup[]> {
-		console.log(userInfo)
-		return this.photosService.photosSearch(searchPhotosDto)
+	async findPhotos(@UserInfo('userId') userId: string,@Query() searchPhotosDto:SearchPhotosDto): Promise<PhotoGroup[]> {
+		return this.photosService.photosSearch(userId,searchPhotosDto)
 	}
 	
 	@Post('/add')
