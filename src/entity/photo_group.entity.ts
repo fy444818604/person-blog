@@ -7,10 +7,15 @@ export class PhotoGroup {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
+	@Column({
+    comment: '相册封面',
+		nullable: true
+  })
 	cover: string;
 	
-	@Column()
+	@Column({
+    comment: '相册名称',
+  })
 	name: string;
 	
 	@ManyToOne(type => Users,users => users.photoGroups)
@@ -19,7 +24,9 @@ export class PhotoGroup {
 	@RelationId((photoGroup:PhotoGroup) => photoGroup.user)
 	userId:string
 	
-	@CreateDateColumn()
+	@CreateDateColumn({
+    comment: '相册创建时间',
+  })
 	createTime: Date;
 	
 	@OneToMany(type => Photos, photos => photos.photo)

@@ -16,10 +16,10 @@ class PhotosAddDto {
 }
 __decorate([
     swagger_1.ApiProperty({
-        description: '相册创建人Id'
+        description: '封面url'
     }),
     __metadata("design:type", String)
-], PhotosAddDto.prototype, "user", void 0);
+], PhotosAddDto.prototype, "cover", void 0);
 __decorate([
     swagger_1.ApiProperty({
         description: '相册名称(max:20)'

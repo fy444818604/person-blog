@@ -20,11 +20,15 @@ __decorate([
     __metadata("design:type", String)
 ], Role.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '角色名称'
+    }),
     __metadata("design:type", String)
 ], Role.prototype, "name", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '角色描述'
+    }),
     __metadata("design:type", String)
 ], Role.prototype, "description", void 0);
 __decorate([

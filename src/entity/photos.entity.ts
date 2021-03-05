@@ -6,7 +6,9 @@ export class Photos {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
+	@Column({
+		comment: '相片地址'
+	})
 	url: string;
 
 	@ManyToOne(type => PhotoGroup, photoGroup => photoGroup.photos)

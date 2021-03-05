@@ -5,13 +5,19 @@ export class Components {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
+	@Column({
+    comment: '组件名'
+  })
 	title: string;
 	
-	@Column()
+	@Column({
+    comment: '组件描述'
+  })
 	describe: string;
 	
-	@Column()
+	@Column({
+    comment: '对应路由'
+  })
 	url: string;
 	
 	@CreateDateColumn()

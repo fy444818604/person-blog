@@ -18,15 +18,21 @@ __decorate([
     __metadata("design:type", String)
 ], Components.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '组件名'
+    }),
     __metadata("design:type", String)
 ], Components.prototype, "title", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '组件描述'
+    }),
     __metadata("design:type", String)
 ], Components.prototype, "describe", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '对应路由'
+    }),
     __metadata("design:type", String)
 ], Components.prototype, "url", void 0);
 __decorate([

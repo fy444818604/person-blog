@@ -3,9 +3,9 @@ import { ValidateIf, MaxLength } from 'class-validator'
 
 export class PhotosAddDto {
 	@ApiProperty({
-		description: '相册创建人Id'
+		description: '封面url'
 	})
-	user: string;
+	cover: string;
 		
 	@ApiProperty({
 		description: '相册名称(max:20)'

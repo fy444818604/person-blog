@@ -6,10 +6,14 @@ export class Label {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
+	@Column({
+    comment: '标签名'
+  })
 	name: string;
 	
-	@Column()
+	@Column({
+		nullable: true
+	})
 	pId: string;
 	
 	@CreateDateColumn()

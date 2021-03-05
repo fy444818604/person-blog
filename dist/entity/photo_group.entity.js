@@ -20,11 +20,16 @@ __decorate([
     __metadata("design:type", String)
 ], PhotoGroup.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '相册封面',
+        nullable: true
+    }),
     __metadata("design:type", String)
 ], PhotoGroup.prototype, "cover", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '相册名称',
+    }),
     __metadata("design:type", String)
 ], PhotoGroup.prototype, "name", void 0);
 __decorate([
@@ -36,7 +41,9 @@ __decorate([
     __metadata("design:type", String)
 ], PhotoGroup.prototype, "userId", void 0);
 __decorate([
-    typeorm_1.CreateDateColumn(),
+    typeorm_1.CreateDateColumn({
+        comment: '相册创建时间',
+    }),
     __metadata("design:type", Date)
 ], PhotoGroup.prototype, "createTime", void 0);
 __decorate([

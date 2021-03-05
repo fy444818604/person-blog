@@ -15,15 +15,21 @@ const class_validator_1 = require("class-validator");
 class CreateNoteDto {
 }
 __decorate([
-    swagger_1.ApiProperty(),
+    swagger_1.ApiProperty({
+        description: '所属标签Id'
+    }),
     __metadata("design:type", String)
 ], CreateNoteDto.prototype, "labelId", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
+    swagger_1.ApiProperty({
+        description: '文章富文本'
+    }),
     __metadata("design:type", String)
 ], CreateNoteDto.prototype, "content", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
+    swagger_1.ApiProperty({
+        description: '文章标题(非空,max:20)'
+    }),
     class_validator_1.IsNotEmpty(),
     class_validator_1.MaxLength(20, {
         message: "最长不得超过20"
@@ -31,7 +37,9 @@ __decorate([
     __metadata("design:type", String)
 ], CreateNoteDto.prototype, "title", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
+    swagger_1.ApiProperty({
+        description: '文章插图(数组)'
+    }),
     __metadata("design:type", Array)
 ], CreateNoteDto.prototype, "photos", void 0);
 exports.CreateNoteDto = CreateNoteDto;

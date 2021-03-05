@@ -7,10 +7,14 @@ export class Role {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
+	@Column({
+		comment: '角色名称'
+	})
 	name: string;
 	
-	@Column()
+	@Column({
+		comment: '角色描述'
+	})
 	description: string;
 	
 	@ManyToMany(type => RoleMenu,roleMenu => roleMenu.roles)

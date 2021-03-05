@@ -13,6 +13,7 @@ const photos_controller_1 = require("./photos.controller");
 const photos_service_1 = require("./photos.service");
 const photos_entity_1 = require("../entity/photos.entity");
 const photo_group_entity_1 = require("../entity/photo_group.entity");
+const users_entity_1 = require("../entity/users.entity");
 let PhotosModule = class PhotosModule {
 };
 PhotosModule = __decorate([
@@ -20,6 +21,7 @@ PhotosModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forFeature([photos_entity_1.Photos]),
             typeorm_1.TypeOrmModule.forFeature([photo_group_entity_1.PhotoGroup]),
+            typeorm_1.TypeOrmModule.forFeature([users_entity_1.Users]),
         ],
         controllers: [photos_controller_1.PhotosController],
         providers: [photos_service_1.PhotosService]

@@ -18,39 +18,35 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const photos_entity_1 = require("../entity/photos.entity");
 const photo_group_entity_1 = require("../entity/photo_group.entity");
+const users_entity_1 = require("../entity/users.entity");
 let PhotosService = class PhotosService {
-    constructor(photo, photoGroup) {
+    constructor(photo, photoGroup, users) {
         this.photo = photo;
         this.photoGroup = photoGroup;
+        this.users = users;
     }
-    async photosSearch(userId, searchPhotosDto) {
-        if (searchPhotosDto.user) {
-            return await this.photoGroup.find({
-                where: {
-                    user: searchPhotosDto.user
-                },
-                relations: ["photos"]
-            });
-        }
-        else {
-            console.log(userId);
-            return await this.photoGroup.find({
-                where: {
-                    userId: userId
-                },
-                relations: ["photos"]
-            });
-        }
+    async photosSearch(userId) {
+        return await this.photoGroup.findAndCount({
+            where: {
+                user: {
+                    userId: userId,
+                }
+            },
+            select: ["cover", "createTime", "name", "id"],
+            relations: ["photos", "user"],
+        });
     }
-    async photosAdd(photosAddDto) {
-        Object.assign(photosAddDto, { cover: '' });
-        return await this.photoGroup.save(photosAddDto);
+    async photosAdd(userId, photosAddDto) {
+        const photoGroup = new photo_group_entity_1.PhotoGroup();
+        photoGroup.cover = photosAddDto.cover;
+        photoGroup.name = photosAddDto.name;
+        photoGroup.user = await this.users.findOne(userId);
+        return await this.photoGroup.save(photoGroup);
     }
     async photosItemSearch(id) {
-        let photos = await this.photoGroup.findOne(id, {
+        return this.photoGroup.findOne(id, {
             relations: ["photos"]
         });
-        return photos.photos;
     }
     async photosItemAdd(photosItemAddDto) {
         let item = await this.photo.save(photosItemAddDto);
@@ -69,7 +65,9 @@ PhotosService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(photos_entity_1.Photos)),
     __param(1, typeorm_1.InjectRepository(photo_group_entity_1.PhotoGroup)),
+    __param(2, typeorm_1.InjectRepository(users_entity_1.Users)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository])
 ], PhotosService);
 exports.PhotosService = PhotosService;

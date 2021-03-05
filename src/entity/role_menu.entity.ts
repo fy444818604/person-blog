@@ -6,10 +6,14 @@ export class RoleMenu {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
+	@Column({
+		comment: '菜单名称'
+	})
 	name: string;
 	
-	@Column()
+	@Column({
+		comment: '菜单路由'
+	})
 	path: string;
 	
 	@ManyToMany(type => Role, role => role.roleMenus)

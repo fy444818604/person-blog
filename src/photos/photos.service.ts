@@ -6,6 +6,7 @@ import { PhotosAddDto } from './dto/photos_add.dto'
 import { PhotosItemAddDto } from './dto/photos_item_add.dto'
 import { Photos } from '../entity/photos.entity'
 import { PhotoGroup } from '../entity/photo_group.entity'
+import { Users } from '../entity/users.entity'
 
 @Injectable()
 export class PhotosService {
@@ -13,38 +14,35 @@ export class PhotosService {
 		@InjectRepository(Photos)
 		private readonly photo: Repository<Photos>,
 		@InjectRepository(PhotoGroup)
-		private readonly photoGroup: Repository<PhotoGroup>
+		private readonly photoGroup: Repository<PhotoGroup>,
+		@InjectRepository(Users)
+		private readonly users: Repository<Users>,
 	){}
 	
-	async photosSearch(userId: string,searchPhotosDto:SearchPhotosDto):Promise<PhotoGroup[]> {
-		if(searchPhotosDto.user){
-			return await this.photoGroup.find({
-				where: {
-					user:searchPhotosDto.user
-				},
-				relations:["photos"]
-			})
-		}else {
-			console.log(userId)
-			return await this.photoGroup.find({
-				where: {
-					userId:userId
-				},
-				relations:["photos"]
-			})
-		}
+	async photosSearch(userId: string):Promise<[PhotoGroup[],number]> {
+		return await this.photoGroup.findAndCount({
+			where: {
+				user:{
+					userId:userId,
+				}
+			},
+			select:["cover","createTime","name","id"],
+			relations:["photos","user"],
+		})
 	}
 	
-	async photosAdd(photosAddDto:PhotosAddDto): Promise<PhotoGroup> {
-		Object.assign(photosAddDto,{cover: ''})
-		return await this.photoGroup.save(photosAddDto)
+	async photosAdd(userId: string,photosAddDto:PhotosAddDto): Promise<PhotoGroup> {
+		const photoGroup = new PhotoGroup()
+		photoGroup.cover = photosAddDto.cover
+		photoGroup.name = photosAddDto.name
+		photoGroup.user = await this.users.findOne(userId) 
+		return await this.photoGroup.save(photoGroup)
 	}
 	
-	async photosItemSearch(id: string): Promise<Photos[]> {
-		let photos = await this.photoGroup.findOne(id,{
+	async photosItemSearch(id: string): Promise<PhotoGroup> {
+		return this.photoGroup.findOne(id,{
 			relations:["photos"]
 		})
-		return photos.photos
 	}
 	
 	async photosItemAdd(photosItemAddDto:PhotosItemAddDto): Promise<Photos> {

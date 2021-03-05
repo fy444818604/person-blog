@@ -1,5 +1,5 @@
 import { Controller, Post, Get, Body, Query, Param } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { PhotosService } from './photos.service'
 import { SearchPhotosDto } from './dto/photos_search.dto'
 import { PhotosAddDto } from './dto/photos_add.dto'
@@ -14,17 +14,20 @@ export class PhotosController {
 	constructor(private readonly photosService:PhotosService){}
 	
 	@Get('/search')
-	async findPhotos(@UserInfo('userId') userId: string,@Query() searchPhotosDto:SearchPhotosDto): Promise<PhotoGroup[]> {
-		return this.photosService.photosSearch(userId,searchPhotosDto)
+	@ApiOperation({
+		summary:'用户相册列表'
+	})
+	async findPhotos(@UserInfo('userId') userId: string): Promise<[PhotoGroup[],number]> {
+		return this.photosService.photosSearch(userId)
 	}
 	
 	@Post('/add')
-	async createPhotos(@Body() photosAddDto:PhotosAddDto): Promise<PhotoGroup> {
-		return this.photosService.photosAdd(photosAddDto)
+	async createPhotos(@UserInfo('userId') userId: string, @Body() photosAddDto:PhotosAddDto): Promise<PhotoGroup> {
+		return this.photosService.photosAdd(userId,photosAddDto)
 	}
 	
 	@Get('/item/search/:id')
-	async findItem(@Param('id') id:string): Promise<Photos[]> {
+	async findItem(@Param('id') id:string): Promise<PhotoGroup> {
 		return this.photosService.photosItemSearch(id)
 	}
 	

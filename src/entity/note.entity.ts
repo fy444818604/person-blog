@@ -19,7 +19,8 @@ export class Note {
 	noteType: string;
 	
 	@Column({
-		type:'longtext'
+		type:'longtext',
+		comment: '笔记富文本'
 	})
 	content: string;
 	

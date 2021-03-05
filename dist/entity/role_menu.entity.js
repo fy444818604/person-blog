@@ -19,11 +19,15 @@ __decorate([
     __metadata("design:type", String)
 ], RoleMenu.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '菜单名称'
+    }),
     __metadata("design:type", String)
 ], RoleMenu.prototype, "name", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '菜单路由'
+    }),
     __metadata("design:type", String)
 ], RoleMenu.prototype, "path", void 0);
 __decorate([

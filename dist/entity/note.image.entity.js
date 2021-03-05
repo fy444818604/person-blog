@@ -19,7 +19,9 @@ __decorate([
     __metadata("design:type", String)
 ], NoteImage.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({
+        comment: '笔记插图地址'
+    }),
     __metadata("design:type", String)
 ], NoteImage.prototype, "url", void 0);
 __decorate([

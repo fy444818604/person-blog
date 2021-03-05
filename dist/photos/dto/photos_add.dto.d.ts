@@ -1,4 +1,4 @@
 export declare class PhotosAddDto {
-    user: string;
+    cover: string;
     name: string;
 }

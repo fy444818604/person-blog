@@ -6,7 +6,9 @@ export class NoteImage {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 	
-	@Column()
+	@Column({
+		comment: '笔记插图地址'
+	})
 	url: string;
 	
 	@ManyToOne(type => Note, note => note.photos, {

@@ -35,7 +35,8 @@ __decorate([
 ], Note.prototype, "noteType", void 0);
 __decorate([
     typeorm_1.Column({
-        type: 'longtext'
+        type: 'longtext',
+        comment: '笔记富文本'
     }),
     __metadata("design:type", String)
 ], Note.prototype, "content", void 0);
