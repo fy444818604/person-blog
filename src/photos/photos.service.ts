@@ -45,7 +45,7 @@ export class PhotosService {
 		})
 	}
 	
-	async photosItemAdd(photosItemAddDto:PhotosItemAddDto): Promise<Photos> {
+	async photosItemAdd(photosItemAddDto:PhotosItemAddDto): Promise<PhotoGroup> {
 		let item = await this.photo.save(photosItemAddDto)
 		let photos = await this.photoGroup.find({
 			where: {

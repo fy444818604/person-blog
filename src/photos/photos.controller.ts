@@ -22,17 +22,26 @@ export class PhotosController {
 	}
 	
 	@Post('/add')
+	@ApiOperation({
+		summary:'用户相册创建'
+	})
 	async createPhotos(@UserInfo('userId') userId: string, @Body() photosAddDto:PhotosAddDto): Promise<PhotoGroup> {
 		return this.photosService.photosAdd(userId,photosAddDto)
 	}
 	
 	@Get('/item/search/:id')
+	@ApiOperation({
+		summary:'根据ID查询相册'
+	})
 	async findItem(@Param('id') id:string): Promise<PhotoGroup> {
 		return this.photosService.photosItemSearch(id)
 	}
 	
-	@Post('/item/add')
-	async createItem(@Body() photosItemAddDto:PhotosItemAddDto): Promise<Photos> {
+	@Post('/item/edit')
+	@ApiOperation({
+		summary:'用户相册编辑(相片添加)'
+	})
+	async createItem(@Body() photosItemAddDto:PhotosItemAddDto): Promise<PhotoGroup> {
 		return this.photosService.photosItemAdd(photosItemAddDto)
 	}
 }
